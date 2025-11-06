@@ -1,7 +1,11 @@
+import Nav from './components/Nav'
+import Hero from './components/Hero'
+
 function App() {
   return (
     <>
-      <h1 className="text-red-500">IEEE Student Branch EMSI Marrakesh</h1>
+      <Nav />
+      <Hero />
     </>
   )
 }
