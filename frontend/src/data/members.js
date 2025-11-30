@@ -3,7 +3,7 @@ export const members = [
   {
     id: 1,
     name: "Yahya LOUKILI",
-    role: "President",
+    role: "Président",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmed",
     email: "ahmed.bennani@example.com",
     linkedin: "https://linkedin.com/in/ahmed-bennani",
@@ -12,7 +12,7 @@ export const members = [
   {
     id: 2,
     name: "Imane HAJAOUI",
-    role: "Vice President",
+    role: "Vice-présidente",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Fatima",
     email: "fatima.elamrani@example.com",
     linkedin: "https://linkedin.com/in/fatima-elamrani",
@@ -21,7 +21,7 @@ export const members = [
   {
     id: 3,
     name: "Basma LAHMIMSI",
-    role: "Secretary",
+    role: "Secrétaire",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Youssef",
     email: "youssef.alaoui@example.com",
     linkedin: "https://linkedin.com/in/youssef-alaoui",
@@ -30,7 +30,7 @@ export const members = [
   {
     id: 4,
     name: "Hiba BETTY",
-    role: "Secretary",
+    role: "Secrétaire",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Salma",
     email: "salma.idrissi@example.com",
     linkedin: "https://linkedin.com/in/salma-idrissi",
@@ -39,7 +39,7 @@ export const members = [
   {
     id: 5,
     name: "Amina TAOURIRI",
-    role: "Treasurer",
+    role: "Trésorière",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Omar",
     email: "omar.tazi@example.com",
     linkedin: "https://linkedin.com/in/omar-tazi",
@@ -48,7 +48,7 @@ export const members = [
   {
     id: 6,
     name: "Rouaa ALHAREEBI",
-    role: "Communication and Social Media Manager",
+    role: "Responsable communication et réseaux sociaux",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nadia",
     email: "nadia.berrada@example.com",
     linkedin: "https://linkedin.com/in/nadia-berrada",
@@ -57,7 +57,7 @@ export const members = [
   {
     id: 7,
     name: "Hiba CHAOUI",
-    role: "Communication and Social Media Manager",
+    role: "Responsable communication et réseaux sociaux",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Karim",
     email: "karim.benjelloun@example.com",
     linkedin: "https://linkedin.com/in/karim-benjelloun",
@@ -66,7 +66,7 @@ export const members = [
   {
     id: 8,
     name: "Maroua BOULLY",
-    role: "Equipment and Logistic Manager",
+    role: "Responsable équipements et logistique",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -75,7 +75,7 @@ export const members = [
   {
     id: 9,
     name: "Fatima-Ezzahra MOUHSINE",
-    role: "Equipment and Logistic Manager",
+    role: "Responsable équipements et logistique",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -84,7 +84,7 @@ export const members = [
   {
     id: 10,
     name: "Aya EDDANIAOUI",
-    role: "Events and Competitions Manager",
+    role: "Responsable événements et compétitions",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -93,7 +93,7 @@ export const members = [
   {
     id: 11,
     name: "Nour El Houda NASSEF",
-    role: "Events and Competitions Manager",
+    role: "Responsable événements et compétitions",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -102,7 +102,7 @@ export const members = [
   {
     id: 12,
     name: "Youness SBAI",
-    role: "IT and Website Manager",
+    role: "Responsable IT et site web",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -111,7 +111,7 @@ export const members = [
   {
     id: 13,
     name: "Taib Moutassaoui",
-    role: "IT and Website Manager",
+    role: "Responsable IT et site web",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -120,7 +120,7 @@ export const members = [
   {
     id: 14,
     name: "Yahya MIHANNE",
-    role: "HR Manager",
+    role: "Responsable RH",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",
@@ -147,7 +147,7 @@ export const members = [
   {
     id: 17,
     name: "Abdelqodous HADADI",
-    role: "Photographer and Video Editor",
+    role: "Photographe et monteur vidéo",
     photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amina",
     email: "amina.chakir@example.com",
     linkedin: "https://linkedin.com/in/amina-chakir",

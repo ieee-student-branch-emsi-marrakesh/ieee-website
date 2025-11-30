@@ -10,10 +10,10 @@ function Cellules() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Our <span className="gradient-text">Cellules</span>
+                        Nos <span className="gradient-text">cellules</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Specialized chapters focusing on different areas of technology and engineering
+                        Des chapitres spécialisés axés sur différents domaines de la technologie et de l’ingénierie
                     </p>
                 </div>
 
@@ -49,7 +49,7 @@ function Cellules() {
 
                             {/* Activities */}
                             <div className="space-y-2">
-                                <p className="text-sm font-semibold text-accent mb-3">Key Activities:</p>
+                                <p className="text-sm font-semibold text-accent mb-3">Activités clés :</p>
                                 <div className="flex flex-wrap gap-2">
                                     {cellule.activities.map((activity, idx) => (
                                         <span
@@ -80,14 +80,14 @@ function Cellules() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 className="text-2xl font-bold text-white">Join a Cellule</h3>
+                            <h3 className="text-2xl font-bold text-white">Rejoindre une cellule</h3>
                         </div>
                         <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                            Each cellule offers unique opportunities to develop specialized skills, work on exciting projects,
-                            and connect with like-minded peers. You can be part of multiple cellules based on your interests!
+                            Chaque cellule offre des opportunités uniques pour développer des compétences spécialisées, travailler sur des projets passionnants
+                            et rencontrer des pairs partageant les mêmes intérêts. Vous pouvez faire partie de plusieurs cellules selon vos centres d’intérêt !
                         </p>
                         <a href="#contact" className="btn btn-primary hover-lift">
-                            Get Started
+                            Commencer
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>

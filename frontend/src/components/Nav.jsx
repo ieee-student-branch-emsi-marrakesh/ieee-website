@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ieeeLogo from '../assets/ieee_logo.png';
 
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,10 +15,10 @@ function Nav() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'What We Do', href: '#what-we-do' },
-    { name: 'Members', href: '#members' },
+    { name: 'Accueil', href: '#home' },
+    { name: 'À propos', href: '#about' },
+    { name: 'Ce que nous faisons', href: '#what-we-do' },
+    { name: 'Membres', href: '#members' },
     { name: 'Cellules', href: '#cellules' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -40,9 +41,11 @@ function Nav() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group" onClick={(e) => scrollToSection(e, '#home')}>
-            <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center font-bold text-xl group-hover:scale-110 transition-transform">
-              IEEE
-            </div>
+            <img
+              src={ieeeLogo}
+              alt="Logo IEEE"
+              className="w-12 h-12 rounded-lg object-cover group-hover:scale-110 transition-transform shadow-md"
+            />
             <div className="hidden md:block">
               <div className="font-bold text-lg gradient-text">IEEE Student Branch</div>
               <div className="text-sm text-gray-400">EMSI Marrakesh</div>
@@ -67,7 +70,7 @@ function Nav() {
               onClick={(e) => scrollToSection(e, '#contact')}
               className="btn btn-primary"
             >
-              Join Us
+              Rejoignez-nous
             </a>
           </div>
 
@@ -75,7 +78,7 @@ function Nav() {
           <button
             className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Basculer le menu"
           >
             <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
             <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -104,7 +107,7 @@ function Nav() {
               onClick={(e) => scrollToSection(e, '#contact')}
               className="btn btn-primary w-full justify-center mt-4"
             >
-              Join Us
+              Rejoignez-nous
             </a>
           </div>
         </div>

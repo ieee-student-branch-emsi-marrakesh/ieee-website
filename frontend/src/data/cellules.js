@@ -3,85 +3,85 @@ export const cellules = [
     {
         id: 1,
         name: "CVTT",
-        fullName: "Computer Vision & Technology Transfer",
-        description: "Focused on advancing computer vision technologies, machine learning, and AI applications. We organize workshops, hackathons, and research projects in cutting-edge technologies.",
+        fullName: "Vision par ordinateur & Transfert de technologie",
+        description: "Axée sur l'avancement des technologies de vision par ordinateur, le machine learning et les applications d'IA. Nous organisons des ateliers, des hackathons et des projets de recherche en technologies de pointe.",
         icon: "🤖",
-        color: "#0084C8",
+        color: "#00629B",
         activities: [
-            "AI/ML Workshops",
-            "Computer Vision Projects",
-            "Tech Talks",
-            "Research Collaborations"
+            "Ateliers IA/ML",
+            "Projets de vision par ordinateur",
+            "Conférences techniques",
+            "Collaborations de recherche"
         ]
     },
     {
         id: 2,
         name: "WIE",
         fullName: "Women in Engineering",
-        description: "Dedicated to promoting women engineers and scientists, and inspiring girls around the world to follow their academic interests in engineering and science.",
+        description: "Dédiée à la promotion des ingénieures et scientifiques, et à l'inspiration des jeunes filles à suivre des études en ingénierie et sciences.",
         icon: "👩‍💻",
-        color: "#00A8E1",
+        color: "#FFB81C",
         activities: [
-            "Mentorship Programs",
-            "Career Development",
-            "Networking Events",
-            "STEM Outreach"
+            "Programmes de mentorat",
+            "Développement de carrière",
+            "Événements de réseautage",
+            "Sensibilisation STEM"
         ]
     },
     {
         id: 3,
         name: "RAS",
         fullName: "Robotics and Automation Society",
-        description: "Exploring the world of robotics, automation, and intelligent systems. We build robots, compete in competitions, and push the boundaries of autonomous systems.",
+        description: "Exploration de la robotique, de l’automatisation et des systèmes intelligents. Nous construisons des robots, participons à des compétitions et repoussons les limites des systèmes autonomes.",
         icon: "🤖",
-        color: "#4FC3F7",
+        color: "#003B5C",
         activities: [
-            "Robot Building",
-            "Automation Projects",
-            "Competitions",
-            "Technical Workshops"
+            "Conception de robots",
+            "Projets d’automatisation",
+            "Compétitions",
+            "Ateliers techniques"
         ]
     },
     {
         id: 4,
         name: "PES",
         fullName: "Power & Energy Society",
-        description: "Focused on sustainable energy solutions, power systems, and renewable energy technologies. We work on projects that contribute to a greener future.",
+        description: "Axée sur les solutions énergétiques durables, les systèmes électriques et les technologies d’énergie renouvelable. Nous réalisons des projets contribuant à un avenir plus vert.",
         icon: "⚡",
         color: "#00629B",
         activities: [
-            "Renewable Energy Projects",
-            "Power Systems Research",
-            "Sustainability Initiatives",
-            "Industry Visits"
+            "Projets en énergies renouvelables",
+            "Recherche en systèmes électriques",
+            "Initiatives de durabilité",
+            "Visites industrielles"
         ]
     },
     {
         id: 5,
         name: "CS",
         fullName: "Computer Society",
-        description: "Advancing computing technology and fostering innovation in software development, cybersecurity, and emerging technologies.",
+        description: "Promotion des technologies informatiques et de l’innovation en développement logiciel, cybersécurité et technologies émergentes.",
         icon: "💻",
         color: "#003B5C",
         activities: [
-            "Coding Bootcamps",
+            "Bootcamps de code",
             "Hackathons",
-            "Software Projects",
-            "Tech Conferences"
+            "Projets logiciels",
+            "Conférences tech"
         ]
     },
     {
         id: 6,
         name: "EMBS",
         fullName: "Engineering in Medicine and Biology Society",
-        description: "Bridging engineering and healthcare through biomedical innovations, medical devices, and health technology solutions.",
+        description: "Relier l’ingénierie et la santé via des innovations biomédicales, des dispositifs médicaux et des solutions de technologies de santé.",
         icon: "🏥",
-        color: "#0084C8",
+        color: "#FFB81C",
         activities: [
-            "Biomedical Projects",
-            "Healthcare Innovation",
-            "Medical Device Development",
-            "Research Seminars"
+            "Projets biomédicaux",
+            "Innovation en santé",
+            "Développement de dispositifs médicaux",
+            "Séminaires de recherche"
         ]
     }
 ];

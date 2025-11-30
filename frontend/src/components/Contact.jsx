@@ -29,21 +29,21 @@ function Contact() {
         const newErrors = {};
 
         if (!formData.name.trim()) {
-            newErrors.name = 'Name is required';
+            newErrors.name = 'Le nom est requis';
         }
 
         if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = "L'email est requis";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'Email is invalid';
+            newErrors.email = "L'email est invalide";
         }
 
         if (!formData.subject.trim()) {
-            newErrors.subject = 'Subject is required';
+            newErrors.subject = 'Le sujet est requis';
         }
 
         if (!formData.message.trim()) {
-            newErrors.message = 'Message is required';
+            newErrors.message = 'Le message est requis';
         }
 
         return newErrors;
@@ -57,7 +57,7 @@ function Contact() {
         if (Object.keys(newErrors).length === 0) {
             // Form is valid - in a real app, you would send this to a backend
             console.log('Form submitted:', formData);
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Merci pour votre message ! Nous vous répondrons prochainement.');
 
             // Reset form
             setFormData({
@@ -80,10 +80,10 @@ function Contact() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Get In <span className="gradient-text">Touch</span>
+                        Prenez <span className="gradient-text">contact</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Have questions or want to join? We'd love to hear from you!
+                        Des questions ou envie de nous rejoindre ? Nous serions ravis d'échanger avec vous !
                     </p>
                 </div>
 
@@ -91,10 +91,10 @@ function Contact() {
                     {/* Contact Info */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                            <h3 className="text-2xl font-bold text-white mb-6">Informations de contact</h3>
                             <p className="text-gray-300 mb-8">
-                                Feel free to reach out to us through any of the following channels.
-                                We're here to answer your questions and help you get involved!
+                                N'hésitez pas à nous contacter via l'un des canaux suivants.
+                                Nous sommes là pour répondre à vos questions et vous aider à vous impliquer !
                             </p>
                         </div>
 
@@ -122,10 +122,10 @@ function Contact() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-white mb-1">Location</h4>
+                                    <h4 className="font-semibold text-white mb-1">Adresse</h4>
                                     <p className="text-gray-400">
-                                        EMSI Marrakesh<br />
-                                        Marrakesh, Morocco
+                                        EMSI Marrakech<br />
+                                        Marrakech, Maroc
                                     </p>
                                 </div>
                             </div>
@@ -137,10 +137,10 @@ function Contact() {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-white mb-1">Office Hours</h4>
+                                    <h4 className="font-semibold text-white mb-1">Heures de bureau</h4>
                                     <p className="text-gray-400">
-                                        Monday - Friday<br />
-                                        9:00 AM - 5:00 PM
+                                        Lundi - Vendredi<br />
+                                        9h00 - 17h00
                                     </p>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ function Contact() {
 
                         {/* Social Media */}
                         <div>
-                            <h4 className="font-semibold text-white mb-4">Follow Us</h4>
+                            <h4 className="font-semibold text-white mb-4">Suivez-nous</h4>
                             <div className="flex gap-3">
                                 <a href="#" className="w-12 h-12 bg-dark hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group">
                                     <svg className="w-6 h-6 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -176,11 +176,11 @@ function Contact() {
 
                     {/* Contact Form */}
                     <div className="card">
-                        <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
+                        <h3 className="text-2xl font-bold text-white mb-6">Envoyez-nous un message</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                                    Name *
+                                    Nom *
                                 </label>
                                 <input
                                     type="text"
@@ -189,7 +189,7 @@ function Contact() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-3 bg-dark border ${errors.name ? 'border-red-500' : 'border-gray-700'} rounded-lg text-white focus:outline-none focus:border-accent transition-colors`}
-                                    placeholder="Your name"
+                                    placeholder="Votre nom"
                                 />
                                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                             </div>
@@ -205,14 +205,14 @@ function Contact() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-3 bg-dark border ${errors.email ? 'border-red-500' : 'border-gray-700'} rounded-lg text-white focus:outline-none focus:border-accent transition-colors`}
-                                    placeholder="your.email@example.com"
+                                    placeholder="votre.email@exemple.com"
                                 />
                                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                             </div>
 
                             <div>
                                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                                    Subject *
+                                    Sujet *
                                 </label>
                                 <input
                                     type="text"
@@ -221,7 +221,7 @@ function Contact() {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     className={`w-full px-4 py-3 bg-dark border ${errors.subject ? 'border-red-500' : 'border-gray-700'} rounded-lg text-white focus:outline-none focus:border-accent transition-colors`}
-                                    placeholder="What is this about?"
+                                    placeholder="Quel est le sujet ?"
                                 />
                                 {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
                             </div>
@@ -237,7 +237,7 @@ function Contact() {
                                     onChange={handleChange}
                                     rows="5"
                                     className={`w-full px-4 py-3 bg-dark border ${errors.message ? 'border-red-500' : 'border-gray-700'} rounded-lg text-white focus:outline-none focus:border-accent transition-colors resize-none`}
-                                    placeholder="Your message..."
+                                    placeholder="Votre message..."
                                 ></textarea>
                                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                             </div>
@@ -246,7 +246,7 @@ function Contact() {
                                 type="submit"
                                 className="btn btn-primary w-full justify-center hover-lift"
                             >
-                                Send Message
+                                Envoyer le message
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                 </svg>

@@ -18,39 +18,39 @@ function Hero() {
         <div className="max-w-5xl mx-auto">
           {/* IEEE Logo/Badge */}
           <div className="inline-block mb-8 animate-fadeIn">
-            <div className="px-8 py-4 glass rounded-full text-[#00A8E1] font-bold text-base tracking-widest hover-glow">
+            <div className="px-8 py-4 glass rounded-full text-[#FFB81C] font-bold text-base tracking-widest hover-glow">
               ⚡ IEEE STUDENT BRANCH EMSI MARRAKESH
             </div>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 animate-fadeIn delay-100 leading-tight">
-            <span className="gradient-text block mb-2">Innovate.</span>
-            <span className="text-white block mb-2">Connect.</span>
-            <span className="gradient-text block">Lead.</span>
+            <span className="gradient-text block mb-2">Innover.</span>
+            <span className="text-white block mb-2">Se connecter.</span>
+            <span className="gradient-text block">Diriger.</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-2xl md:text-3xl text-gray-200 mb-6 animate-fadeIn delay-200 max-w-4xl mx-auto font-medium leading-relaxed">
-            Join the largest technical professional organization at{' '}
-            <span className="text-[#00A8E1] font-bold">EMSI Marrakesh</span>
+            Rejoignez la plus grande organisation professionnelle technique à{' '}
+            <span className="text-[#FFB81C] font-bold">l'EMSI Marrakech</span>
           </p>
 
           {/* Description */}
           <p className="text-xl md:text-2xl text-gray-300 mb-12 animate-fadeIn delay-300 max-w-3xl mx-auto leading-relaxed">
-            Empowering students to advance technology for humanity through innovation and excellence
+            Accompagner les étudiants pour faire progresser la technologie au service de l'humanité grâce à l'innovation et à l'excellence
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fadeIn delay-400 mb-20">
             <a href="#about" className="btn btn-primary text-lg px-10 py-4">
-              <span>Discover More</span>
+              <span>En savoir plus</span>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
             <a href="#contact" className="btn btn-outline text-lg px-10 py-4">
-              <span>Get Involved</span>
+              <span>S'impliquer</span>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -61,11 +61,11 @@ function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 animate-fadeIn delay-500">
             <div className="card hover-lift text-center p-6">
               <div className="text-5xl md:text-6xl font-black gradient-text mb-3">500+</div>
-              <div className="text-gray-300 font-medium text-lg">Members</div>
+              <div className="text-gray-300 font-medium text-lg">Membres</div>
             </div>
             <div className="card hover-lift text-center p-6">
               <div className="text-5xl md:text-6xl font-black gradient-text mb-3">50+</div>
-              <div className="text-gray-300 font-medium text-lg">Events/Year</div>
+              <div className="text-gray-300 font-medium text-lg">Événements/an</div>
             </div>
             <div className="card hover-lift text-center p-6">
               <div className="text-5xl md:text-6xl font-black gradient-text mb-3">6</div>
@@ -73,7 +73,7 @@ function Hero() {
             </div>
             <div className="card hover-lift text-center p-6">
               <div className="text-5xl md:text-6xl font-black gradient-text mb-3">10+</div>
-              <div className="text-gray-300 font-medium text-lg">Years Active</div>
+              <div className="text-gray-300 font-medium text-lg">Années d'activité</div>
             </div>
           </div>
         </div>
@@ -81,8 +81,8 @@ function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 border-2 border-[#00A8E1] rounded-full flex items-start justify-center p-2 hover-glow cursor-pointer">
-          <div className="w-1.5 h-4 bg-[#00A8E1] rounded-full animate-pulse"></div>
+        <div className="w-8 h-12 border-2 border-[#FFB81C] rounded-full flex items-start justify-center p-2 hover-glow cursor-pointer">
+          <div className="w-1.5 h-4 bg-[#FFB81C] rounded-full animate-pulse"></div>
         </div>
       </div>
     </section>

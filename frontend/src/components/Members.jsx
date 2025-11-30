@@ -10,10 +10,10 @@ function Members() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Meet Our <span className="gradient-text">Team</span>
+                        Rencontrez notre <span className="gradient-text">équipe</span>
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        The passionate individuals driving innovation and excellence at IEEE EMSI Marrakesh
+                        Des personnes passionnées qui portent l’innovation et l’excellence à l’IEEE EMSI Marrakech
                     </p>
                 </div>
 
@@ -87,12 +87,12 @@ function Members() {
                 {/* Join Team CTA */}
                 <div className="text-center mt-16">
                     <div className="card max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-white mb-3">Want to Join Our Team?</h3>
+                        <h3 className="text-2xl font-bold text-white mb-3">Envie de rejoindre notre équipe ?</h3>
                         <p className="text-gray-400 mb-6">
-                            We're always looking for passionate individuals to join our leadership team
+                            Nous recherchons toujours des personnes passionnées pour rejoindre notre équipe de direction
                         </p>
                         <a href="#contact" className="btn btn-primary hover-lift">
-                            Apply Now
+                            Postuler maintenant
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>

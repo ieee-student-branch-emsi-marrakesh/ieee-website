@@ -2,19 +2,19 @@ function Footer() {
     const currentYear = new Date().getFullYear();
 
     const quickLinks = [
-        { name: 'Home', href: '#home' },
-        { name: 'About', href: '#about' },
-        { name: 'What We Do', href: '#what-we-do' },
-        { name: 'Members', href: '#members' },
+        { name: 'Accueil', href: '#home' },
+        { name: 'À propos', href: '#about' },
+        { name: 'Ce que nous faisons', href: '#what-we-do' },
+        { name: 'Membres', href: '#members' },
         { name: 'Cellules', href: '#cellules' },
         { name: 'Contact', href: '#contact' }
     ];
 
     const resources = [
         { name: 'IEEE.org', href: 'https://www.ieee.org' },
-        { name: 'IEEE Student Portal', href: 'https://students.ieee.org' },
-        { name: 'EMSI Marrakesh', href: 'https://www.emsi.ma' },
-        { name: 'Join IEEE', href: 'https://www.ieee.org/membership' }
+        { name: "Portail étudiant IEEE", href: 'https://students.ieee.org' },
+        { name: 'EMSI Marrakech', href: 'https://www.emsi.ma' },
+        { name: "Rejoindre l'IEEE", href: 'https://www.ieee.org/membership' }
     ];
 
     return (
@@ -29,12 +29,12 @@ function Footer() {
                             </div>
                             <div>
                                 <div className="font-bold text-lg gradient-text">IEEE Student Branch</div>
-                                <div className="text-sm text-gray-400">EMSI Marrakesh</div>
+                                <div className="text-sm text-gray-400">EMSI Marrakech</div>
                             </div>
                         </div>
                         <p className="text-gray-400 mb-6 max-w-md">
-                            Empowering students to advance technology for humanity through innovation,
-                            collaboration, and excellence in engineering.
+                            Accompagner les étudiants à faire progresser la technologie au service de l’humanité
+                            grâce à l’innovation, la collaboration et l’excellence en ingénierie.
                         </p>
                         <div className="flex gap-3">
                             <a href="#" className="w-10 h-10 bg-dark hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group">
@@ -62,7 +62,7 @@ function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-bold text-white mb-4">Quick Links</h4>
+                        <h4 className="font-bold text-white mb-4">Liens rapides</h4>
                         <ul className="space-y-2">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
@@ -79,7 +79,7 @@ function Footer() {
 
                     {/* Resources */}
                     <div>
-                        <h4 className="font-bold text-white mb-4">Resources</h4>
+                        <h4 className="font-bold text-white mb-4">Ressources</h4>
                         <ul className="space-y-2">
                             {resources.map((resource) => (
                                 <li key={resource.name}>
@@ -101,14 +101,14 @@ function Footer() {
                 <div className="pt-8 border-t border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-400 text-sm text-center md:text-left">
-                            © {currentYear} IEEE Student Branch EMSI Marrakesh. All rights reserved.
+                            © {currentYear} IEEE Student Branch EMSI Marrakech. Tous droits réservés.
                         </p>
                         <div className="flex gap-6 text-sm">
                             <a href="#" className="text-gray-400 hover:text-accent transition-colors">
-                                Privacy Policy
+                                Politique de confidentialité
                             </a>
                             <a href="#" className="text-gray-400 hover:text-accent transition-colors">
-                                Terms of Service
+                                Conditions d'utilisation
                             </a>
                         </div>
                     </div>

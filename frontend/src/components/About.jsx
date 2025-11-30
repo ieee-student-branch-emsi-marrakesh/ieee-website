@@ -9,10 +9,10 @@ function About() {
                     {/* Section Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                            About <span className="gradient-text">IEEE Student Branch</span>
+                            À propos de <span className="gradient-text">IEEE Student Branch</span>
                         </h2>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                            Empowering the next generation of engineers and innovators at EMSI Marrakesh
+                            Donner les moyens à la prochaine génération d’ingénieurs et d’innovateurs à l’EMSI Marrakech
                         </p>
                     </div>
 
@@ -20,16 +20,16 @@ function About() {
                     <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
                         {/* Left Column - Description */}
                         <div className="space-y-6">
-                            <h3 className="text-2xl font-bold text-white">Who We Are</h3>
+                            <h3 className="text-2xl font-bold text-white">Qui sommes-nous</h3>
                             <p className="text-gray-300 leading-relaxed">
-                                The IEEE Student Branch at EMSI Marrakesh is part of the world's largest
-                                technical professional organization dedicated to advancing technology for
-                                the benefit of humanity.
+                                L’IEEE Student Branch de l’EMSI Marrakech fait partie de la plus grande
+                                organisation professionnelle technique au monde, dédiée à l’avancement de la
+                                technologie au service de l’humanité.
                             </p>
                             <p className="text-gray-300 leading-relaxed">
-                                We bring together students from diverse engineering disciplines to learn,
-                                collaborate, and innovate. Through workshops, competitions, projects, and
-                                networking events, we provide opportunities for personal and professional growth.
+                                Nous rassemblons des étudiants de diverses disciplines d’ingénierie pour apprendre,
+                                collaborer et innover. À travers des ateliers, des compétitions, des projets et des
+                                événements de réseautage, nous offrons des opportunités de développement personnel et professionnel.
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 <span className="px-4 py-2 bg-primary/20 text-accent rounded-full text-sm font-medium">
@@ -57,11 +57,11 @@ function About() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold text-white mb-2">Our Mission</h4>
+                                        <h4 className="text-xl font-bold text-white mb-2">Notre mission</h4>
                                         <p className="text-gray-400">
-                                            To foster technological innovation and excellence for the benefit of
-                                            humanity by providing students with opportunities to develop technical
-                                            and professional skills.
+                                            Favoriser l’innovation technologique et l’excellence au bénéfice de
+                                            l’humanité en offrant aux étudiants des opportunités de développer des
+                                            compétences techniques et professionnelles.
                                         </p>
                                     </div>
                                 </div>
@@ -76,11 +76,11 @@ function About() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold text-white mb-2">Our Vision</h4>
+                                        <h4 className="text-xl font-bold text-white mb-2">Notre vision</h4>
                                         <p className="text-gray-400">
-                                            To be the leading student organization in Morocco, recognized for
-                                            producing skilled engineers and innovators who drive technological
-                                            advancement and social impact.
+                                            Être l’organisation étudiante de référence au Maroc, reconnue pour
+                                            former des ingénieurs et innovateurs qui impulsent le progrès technologique
+                                            et l’impact social.
                                         </p>
                                     </div>
                                 </div>
@@ -96,9 +96,9 @@ function About() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                             </div>
-                            <h4 className="text-xl font-bold text-white mb-2">Community</h4>
+                            <h4 className="text-xl font-bold text-white mb-2">Communauté</h4>
                             <p className="text-gray-400">
-                                Join a vibrant community of 500+ passionate students and professionals
+                                Rejoignez une communauté dynamique de plus de 500 étudiants et professionnels passionnés
                             </p>
                         </div>
 
@@ -110,7 +110,7 @@ function About() {
                             </div>
                             <h4 className="text-xl font-bold text-white mb-2">Innovation</h4>
                             <p className="text-gray-400">
-                                Work on cutting-edge projects and participate in international competitions
+                                Travaillez sur des projets de pointe et participez à des compétitions internationales
                             </p>
                         </div>
 
@@ -120,9 +120,9 @@ function About() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <h4 className="text-xl font-bold text-white mb-2">Career Growth</h4>
+                            <h4 className="text-xl font-bold text-white mb-2">Développement de carrière</h4>
                             <p className="text-gray-400">
-                                Access exclusive workshops, mentorship, and networking opportunities
+                                Accédez à des ateliers exclusifs, du mentorat et des opportunités de réseautage
                             </p>
                         </div>
                     </div>
