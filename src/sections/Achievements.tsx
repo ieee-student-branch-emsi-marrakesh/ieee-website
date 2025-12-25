@@ -1,0 +1,63 @@
+import { motion } from "framer-motion";
+import { achievements } from "@/data/achievements";
+import AchievementCard from "@/components/AchievementCard";
+
+export default function Achievements() {
+    return (
+        <section id="awards" className="py-24 bg-ieee-navy relative overflow-hidden">
+            {/* Background glow effects */}
+            <div className="absolute top-1/4 right-0 w-96 h-96 bg-ieee-gold/5 blur-[120px] rounded-full" />
+            <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-ieee-blue/5 blur-[120px] rounded-full" />
+
+            <div className="container px-4 mx-auto relative z-10">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-20"
+                >
+                    <div className="inline-block mb-4">
+                        <span className="px-4 py-1.5 text-xs font-black uppercase tracking-[0.3em] text-ieee-gold bg-ieee-gold/10 border border-ieee-gold/20 rounded-full">
+                            Excellence & Innovation
+                        </span>
+                    </div>
+                    <h2 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
+                        Awards & <span className="text-ieee-gold">Achievements</span>
+                    </h2>
+                    <p className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Our members excel in national and international competitions,
+                        demonstrating their technical expertise and innovative capabilities.
+                    </p>
+                </motion.div>
+
+                {/* Achievements Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {achievements.map((achievement, index) => (
+                        <AchievementCard
+                            key={index}
+                            achievement={achievement}
+                            index={index}
+                        />
+                    ))}
+                </div>
+
+                {/* Bottom Accent */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.8, duration: 1 }}
+                    className="mt-20 text-center"
+                >
+                    <div className="inline-block px-8 py-4 bg-ieee-navy-light border border-ieee-gold/10 rounded-2xl">
+                        <p className="text-sm font-bold text-gray-400 uppercase tracking-[0.2em]">
+                            Building Excellence Through <span className="text-ieee-gold">Competition</span>
+                        </p>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
