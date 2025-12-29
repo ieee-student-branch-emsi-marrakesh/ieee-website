@@ -1,18 +1,17 @@
 import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import { SOCIAL_LINKS, getMailtoLink } from "@/data/socials";
+import { PrivacyPolicy, TermsOfService, CookiePolicy } from "./PolicyDialogs";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-ieee-navy pt-24 pb-12 relative overflow-hidden">
-            {/* Subtle top border/divider */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-ieee-gold/30 to-transparent" />
 
             <div className="container px-4 mx-auto relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
                     <div className="col-span-1 md:col-span-1">
-                        {/* Logo and Club Name */}
                         <div className="flex items-center gap-3 mb-6">
                             <img
                                 src="/assets/logo.jpg"
@@ -107,9 +106,15 @@ export default function Footer() {
                 <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
                     <p>© {currentYear} IEEE Student Branch EMSI Marrakesh.</p>
                     <div className="flex gap-10">
-                        <a href="#" className="hover:text-ieee-gold transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-ieee-gold transition-colors">Terms</a>
-                        <a href="#" className="hover:text-ieee-gold transition-colors">Cookies</a>
+                        <PrivacyPolicy
+                            trigger={<button className="hover:text-ieee-gold transition-colors">Privacy</button>}
+                        />
+                        <TermsOfService
+                            trigger={<button className="hover:text-ieee-gold transition-colors">Terms</button>}
+                        />
+                        <CookiePolicy
+                            trigger={<button className="hover:text-ieee-gold transition-colors">Cookies</button>}
+                        />
                     </div>
                 </div>
             </div>
