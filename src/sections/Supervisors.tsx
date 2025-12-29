@@ -12,7 +12,7 @@ export default function Supervisors() {
             slidesToScroll: 1,
             containScroll: 'trimSnaps'
         },
-        [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })]
+        [Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: true })]
     );
 
     return (
