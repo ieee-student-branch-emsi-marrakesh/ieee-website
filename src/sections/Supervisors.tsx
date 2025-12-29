@@ -12,7 +12,7 @@ export default function Supervisors() {
             slidesToScroll: 1,
             containScroll: 'trimSnaps'
         },
-        [Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: true })]
+        [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })]
     );
 
     return (
@@ -36,7 +36,7 @@ export default function Supervisors() {
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div className="flex -ml-4">
                         {supervisors.map((supervisor, index) => (
-                            <div key={index} className="flex-[0_0_100%] min-w-0 pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
+                            <div key={index} className="flex-[0_0_100%] min-w-0 pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%]">
                                 <Card className="h-full border-none bg-ieee-navy-light/50 backdrop-blur-sm shadow-soft group transition-all hover:bg-ieee-navy-light rounded-3xl border border-transparent hover:border-ieee-gold/20 overflow-hidden">
                                     <CardContent className="p-8 flex flex-col items-center text-center">
                                         <div className="relative w-64 h-64 mb-8 rounded-3xl overflow-hidden bg-ieee-navy ring-4 ring-white/5 group-hover:ring-ieee-gold/30 transition-all shadow-2xl">
