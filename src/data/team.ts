@@ -34,11 +34,12 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Basma LAHMIMSI",
         role: "Secretary",
-        image: "/assets/team/hajui.jpg",
+        image: "/assets/team/basma.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#",
-            instagram: "#",
+            gmail: "basmalahmimsi1@gmail.com",
+            linkedin: "https://www.linkedin.com/in/basmalahmimsi",
+            instagram: "https://www.instagram.com/basma.lahmimsi",
+            github: "https://github.com/BasmaHM1"
         },
     },
     {
@@ -56,9 +57,8 @@ export const teamMembers: TeamMember[] = [
         role: "Treasurer",
         image: "/assets/team/amina.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#",
-            github: "#",
+            linkedin: "https://www.linkedin.com/in/taouriri-amina-557095335",
+            instagram: "https://www.instagram.com/aminaa_taouriri",
         },
     },
     {
@@ -96,8 +96,9 @@ export const teamMembers: TeamMember[] = [
         role: "Equipment and logistic Manager",
         image: "/assets/team/mouhsine.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#"
+            gmail: "fezzhra0@gmail.com",
+            linkedin: "https://www.linkedin.com/in/fatima-ezzharae-mouhsine-2270b628a",
+            instagram: "https://www.instagram.com/ezzhra79"
         },
     },
     {
@@ -105,7 +106,7 @@ export const teamMembers: TeamMember[] = [
         role: "Events and competitions Manager",
         image: "/assets/team/aya.jpeg",
         links: {
-            gmail: "member@gmail.com",
+            gmail: "eddaniaouiaya@gmail.com",
             linkedin: "https://www.linkedin.com/in/aya-eddaniaoui-464713344",
             instagram: "https://www.instagram.com/aya_ma.na",
             github: "https://github.com/aya896"
@@ -114,10 +115,9 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Nour El Houda NASSEF",
         role: "Events and competitions Manager",
-        image: "/assets/team/placeholder.jpg",
+        image: "/assets/team/nour.jpeg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#"
+            gmail: "nourelhouda.nassef@gmail.com",
         },
     },
     {
@@ -146,8 +146,10 @@ export const teamMembers: TeamMember[] = [
         role: "HR Manager",
         image: "/assets/team/mihnane.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#"
+            gmail: "yahyamihnane0@gmail.com",
+            linkedin: "https://www.linkedin.com/in/yahya-mihnane-098206250",
+            instagram: "https://www.instagram.com/yahyamihnane",
+            github: "https://github.com/Yahyamih"
         },
     },
     {
@@ -172,22 +174,23 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
-        name: "Abdelqodus HADADI",
+        name: "Abdelqodouss HADADI",
         role: "Video Editor",
-        image: "/assets/team/placeholder.jpg",
+        image: "/assets/team/abdlqodos.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#"
+            gmail: "hadadiabdelqodouss.2022@gmail.com",
+            linkedin: "https://www.linkedin.com/in/abdelqodouss-hadadi-83a302332/",
+            instagram: "https://www.instagram.com/abdelqodouss_hadadi/"
         },
     },
     {
         name: "Ikram AIT OMAR",
         role: "Photographer",
-        image: "/assets/team/placeholder.jpg",
+        image: "/assets/team/ikram.jpg",
         links: {
-            gmail: "member@gmail.com",
-            linkedin: "#",
-            github: "#"
+            gmail: "ikramaitomar01@gmail.com",
+            linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
+            instagram: "https://www.instagram.com/_ikramaor"
         },
     },
 ];
