@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Team from "@/sections/Team";
+import Supervisors from "@/sections/Supervisors";
 import Events from "@/sections/Events";
 import Achievements from "@/sections/Achievements";
 import Cells from "@/sections/Cells";
@@ -16,6 +17,7 @@ function App() {
         <Hero />
         <About />
         <Team />
+        <Supervisors />
         <Events />
         <Cells />
         <Achievements />
