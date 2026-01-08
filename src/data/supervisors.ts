@@ -8,14 +8,14 @@ export interface Supervisor {
 export const supervisors: Supervisor[] = [
     {
         name: "Dr. Abdelati REHA",
-        title: "PhD in ...",
-        role: "Research and Development Director at EMSI Marrakesh",
+        title: "PhD in Telecoms and Computer Science",
+        role: "Research and Development Director and Professor at EMSI Marrakesh",
         image: "/assets/supervisors/reha.jpg",
     },
     {
         name: "Dr. Raja MOUACHI",
-        title: "Doctor of Engineering, Electrical Engineering, Renewable Energies, Computer Science",
-        role: "Coordinator of the Industrial Engineering program at EMSI Marrakesh",
+        title: "Doctor of Engineering, Electrical Engineering, Renewable Energies and Computer Science",
+        role: "Coordinator of the Industrial Engineering program and Professor at EMSI Marrakesh",
         image: "/assets/supervisors/mouachi.jpg",
     },
     {
@@ -23,6 +23,12 @@ export const supervisors: Supervisor[] = [
         title: "PhD in AI and Embedded Systems",
         role: "Professor at EMSI Marrakesh",
         image: "/assets/supervisors/jakjoud.jpg",
+    },
+    {
+        name: "Dr. Abdelali EL GOURARI",
+        title: "PhD in AI and Embedded Systems",
+        role: "Professor at EMSI Marrakesh",
+        image: "/assets/supervisors/gourari.jpg",
     },
     {
         name: "Dr. Omaima BENKHADDA",

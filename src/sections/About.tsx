@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Lightbulb, Target, Globe } from "lucide-react";
+import { getInstitutionLogos } from "@/data/institutions";
 
 export default function About() {
     const features = [
@@ -26,6 +27,8 @@ export default function About() {
         }
     ];
 
+    const institutions = getInstitutionLogos();
+
     return (
         <section id="about" className="py-24 bg-ieee-navy-light relative overflow-hidden">
             {/* Subtle background glow */}
@@ -42,12 +45,42 @@ export default function About() {
                         <h2 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl leading-tight">
                             Who We <span className="text-ieee-gold">Are</span>
                         </h2>
-                        <p className="mb-6 text-lg leading-relaxed text-gray-400">
-                            The IEEE Student Branch is a student organization at EMSI Marrakesh dedicated to promoting technical excellence and professional growth among students.
-                        </p>
-                        <p className="mb-8 text-lg leading-relaxed text-gray-400">
-                            IEEE (Institute of Electrical and Electronics Engineers) is the world's largest technical professional organization for the advancement of technology. Our branch focuses on bridging the gap between academic theory and practical industry application.
-                        </p>
+                        <div className="space-y-6 mb-8">
+                            <p className="text-lg leading-relaxed text-gray-400">
+                                The IEEE Student Branch is a student organization at <span className="text-white font-semibold">EMSI Marrakesh</span> dedicated to promoting technical excellence and professional growth among students. We operate under the expert academic supervision of <span className="text-white font-semibold">Laboratoire LAMIGEP</span>, fostering a culture of engineering excellence, research, and innovation.
+                            </p>
+                            <p className="text-lg leading-relaxed text-gray-400">
+                                As part of IEEE—the world's largest technical professional organization—our branch serves as a bridge between academic theory and practical industry application, empowering the next generation of Moroccan engineers.
+                            </p>
+                        </div>
+
+                        {/* Institutional Affiliation Block */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="mb-10 p-8 bg-ieee-navy/40 rounded-3xl border border-ieee-gold/20 backdrop-blur-md"
+                        >
+                            <span className="block text-xs font-bold uppercase tracking-widest text-ieee-gold/60 mb-6 text-center">
+                                Institutional Affiliation
+                            </span>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16">
+                                {institutions.map((inst) => (
+                                    <div
+                                        key={inst.name}
+                                        className="relative flex items-center justify-center"
+                                    >
+                                        <img
+                                            src={inst.logo}
+                                            alt={inst.alt}
+                                            className="h-14 sm:h-16 w-auto object-contain transition-all duration-500"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
                         <div className="bg-ieee-navy p-8 rounded-3xl border border-ieee-gold/10 shadow-soft">
                             <h3 className="text-xl font-bold mb-4 text-white">Our Focus</h3>
                             <ul className="space-y-4 text-gray-400">
