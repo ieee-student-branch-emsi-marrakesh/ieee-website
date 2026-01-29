@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
 import { events } from "@/data/events";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
+import EventModal from "@/components/EventModal";
+import type { Event } from "@/data/events";
+import { useState } from "react";
 
 export default function Events() {
     const upcomingEvents = events.filter(e => !e.isPast);
     const pastEvents = events.filter(e => e.isPast);
+    const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const handleEventClick = (event: Event) => {
+        setSelectedEvent(event);
+        setModalOpen(true);
+    };
 
     return (
         <section id="events" className="py-24 bg-ieee-navy-light relative overflow-hidden">
@@ -39,7 +48,10 @@ export default function Events() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <Card className="flex flex-col md:flex-row overflow-hidden border border-white/5 bg-ieee-navy shadow-soft rounded-[2rem] h-full transition-all hover:shadow-gold-glow hover:border-ieee-gold/30 group">
+                                <Card
+                                    className="flex flex-col md:flex-row overflow-hidden border border-white/5 bg-ieee-navy shadow-soft rounded-[2rem] h-full transition-all hover:shadow-gold-glow hover:border-ieee-gold/30 group cursor-pointer"
+                                    onClick={() => handleEventClick(event)}
+                                >
                                     <div className="md:w-2/5 aspect-[4/3] md:aspect-auto bg-ieee-navy-light relative overflow-hidden">
                                         <div className="absolute inset-0 flex items-center justify-center text-ieee-gold/10 font-bold text-2xl uppercase">
                                             {event.category}
@@ -65,16 +77,13 @@ export default function Events() {
                                             </div>
                                         </div>
                                         <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-ieee-gold transition-colors">{event.title}</h4>
-                                        <p className="text-gray-400 text-sm mb-8 flex-grow leading-relaxed">{event.description}</p>
-                                        <div className="flex items-center gap-4 text-xs text-gray-500 mb-8 border-t border-white/5 pt-6">
+                                        <p className="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">{event.description}</p>
+                                        <div className="flex items-center gap-4 text-xs text-gray-500 border-t border-white/5 pt-4">
                                             <div className="flex items-center gap-1.5">
                                                 <MapPin className="w-4 h-4 text-ieee-gold/60" />
-                                                EMSI Marrakesh
+                                                {event.location}
                                             </div>
                                         </div>
-                                        <Button variant="default" className="w-full rounded-xl bg-ieee-gold text-ieee-navy hover:bg-ieee-gold/90 font-bold shadow-gold">
-                                            Register Now
-                                        </Button>
                                     </div>
                                 </Card>
                             </motion.div>
@@ -97,7 +106,10 @@ export default function Events() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                <Card className="overflow-hidden border border-white/5 bg-ieee-navy rounded-3xl h-full hover:shadow-blue-glow hover:border-ieee-blue/20 transition-all group">
+                                <Card
+                                    className="overflow-hidden border border-white/5 bg-ieee-navy rounded-3xl h-full hover:shadow-blue-glow hover:border-ieee-blue/20 transition-all group cursor-pointer"
+                                    onClick={() => handleEventClick(event)}
+                                >
                                     <div className="aspect-video bg-ieee-navy-light relative overflow-hidden">
                                         <div className="absolute inset-0 flex items-center justify-center opacity-10">
                                             <Calendar size={48} className="text-white" />
@@ -122,6 +134,13 @@ export default function Events() {
                     </div>
                 </div>
             </div>
+
+            {/* Event Modal */}
+            <EventModal
+                event={selectedEvent}
+                open={modalOpen}
+                onOpenChange={setModalOpen}
+            />
         </section>
     );
 }

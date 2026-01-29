@@ -36,4 +36,10 @@ export const supervisors: Supervisor[] = [
         role: "Professor at EMSI Marrakesh",
         image: "/assets/supervisors/benkhadda.jpg",
     },
+    {
+        name: "Dr. Malake JIBRAILI",
+        title: "PhD in Management Sciences",
+        role: "Professor and Researcher at EMSI Marrakesh",
+        image: "/assets/supervisors/malake.jpg",
+    },
 ];
