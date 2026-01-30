@@ -85,6 +85,30 @@ export const events: Event[] = [
         ],
     },
     {
+      title: "EMSIstes INNOV'25",
+      description: "Innovation competition focused on smart systems and emerging technologies.",
+      date: "May 24, 2025",
+      image: "/assets/events/emsistes_innov25.jpg",
+      category: "Competition",
+      type: "competition",
+      location: "EMSI Marrakesh",
+      isPast: true,
+      detailedDescription: "EMSIstes INNOV is an innovation-driven competition that brought together students to design and prototype smart systems addressing real-world challenges. The competition focused on key domains such as HealthTech, Smart Mobility, Renewable Energy, and Artificial Intelligence. Teams worked collaboratively to develop impactful solutions, combining technical skills, creativity, and entrepreneurial thinking, before presenting their projects to a jury.",
+      objectives: [
+        "Encourage innovation and problem-solving using smart systems",
+        "Apply AI and emerging technologies to real-world challenges",
+        "Promote teamwork and interdisciplinary collaboration",
+        "Expose students to project pitching and evaluation by a jury"
+      ],
+      tools: [
+        "Artificial Intelligence",
+        "IoT & Smart Systems",
+        "Renewable Energy Technologies",
+        "Data Analysis",
+        "Prototyping Tools"
+      ],
+    },
+    {
         title: "SolidWorks Workshop",
         description: "Hands-on workshop on 3D CAD modeling using SolidWorks.",
         date: "April 30, 2025",
