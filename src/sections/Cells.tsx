@@ -68,7 +68,7 @@ export default function Cells() {
                                         </CardContent>
                                     </Card>
                                 </DialogTrigger>
-                                <DialogContent className="sm:max-w-[650px] bg-ieee-navy border border-ieee-gold/20 rounded-[2.5rem] p-0 overflow-hidden shadow-2xl">
+                                <DialogContent className="sm:max-w-[650px] bg-ieee-navy border border-ieee-gold/20 rounded-[2.5rem] p-0 overflow-hidden shadow-2xl [&>button]:text-white">
                                     <div className="h-48 relative border-b border-ieee-gold/10 overflow-hidden">
                                         <img
                                             src={cell.image}
