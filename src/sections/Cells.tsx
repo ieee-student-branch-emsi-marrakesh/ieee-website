@@ -10,7 +10,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Clock, CheckCircle2, ChevronRight, Cpu } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 
 export default function Cells() {
     return (
@@ -24,7 +24,7 @@ export default function Cells() {
                         Our <span className="text-ieee-gold">Cells</span> & Activities
                     </h2>
                     <p className="max-w-2xl mx-auto text-lg text-gray-400">
-                        Explore our specialized technical cells and their weekly activities.
+                        Explore our specialized technical cells and their activities.
                     </p>
                 </div>
 
@@ -41,9 +41,14 @@ export default function Cells() {
                                 <DialogTrigger asChild>
                                     <Card className="cursor-pointer group hover:bg-ieee-navy-light transition-all border border-white/5 hover:border-ieee-gold/30 bg-ieee-navy-light/50 shadow-soft rounded-[2.5rem] overflow-hidden h-full">
                                         <CardContent className="p-0">
-                                            <div className="aspect-[4/3] bg-ieee-navy flex items-center justify-center relative overflow-hidden">
-                                                <div className="absolute inset-0 bg-gradient-to-br from-ieee-gold/5 to-transparent opacity-50" />
-                                                <Cpu className="w-16 h-16 text-ieee-gold/20 group-hover:text-ieee-gold/40 transition-colors duration-500" />
+                                            <div className="aspect-[4/3] bg-ieee-navy relative overflow-hidden group">
+                                                <img
+                                                    src={cell.image}
+                                                    alt={cell.name}
+                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-80"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-ieee-navy via-ieee-navy/20 to-transparent" />
+                                                <div className="absolute inset-0 bg-ieee-gold/5 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                             </div>
                                             <div className="p-8">
                                                 <div className="mb-4 flex items-center gap-2">
@@ -64,10 +69,17 @@ export default function Cells() {
                                     </Card>
                                 </DialogTrigger>
                                 <DialogContent className="sm:max-w-[650px] bg-ieee-navy border border-ieee-gold/20 rounded-[2.5rem] p-0 overflow-hidden shadow-2xl">
-                                    <div className="h-40 bg-ieee-navy-light relative border-b border-ieee-gold/10">
-                                        <div className="absolute inset-0 flex items-center justify-center circuit-pattern opacity-10" />
+                                    <div className="h-48 relative border-b border-ieee-gold/10 overflow-hidden">
+                                        <img
+                                            src={cell.image}
+                                            alt={cell.name}
+                                            className="absolute inset-0 w-full h-full object-cover opacity-30"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-ieee-navy via-ieee-navy/40 to-transparent" />
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <h2 className="text-6xl font-black text-white/5 tracking-tighter uppercase">{cell.id}</h2>
+                                            <div className="w-20 h-[1px] bg-ieee-gold/20" />
+                                            <h2 className="mx-4 text-4xl font-black text-white/10 tracking-[0.5em] uppercase">{cell.id}</h2>
+                                            <div className="w-20 h-[1px] bg-ieee-gold/20" />
                                         </div>
                                     </div>
                                     <div className="p-10">
@@ -98,19 +110,13 @@ export default function Cells() {
                                                 </ul>
                                             </div>
 
-                                            <div className="bg-ieee-navy-light border border-ieee-gold/10 p-8 rounded-[2rem] flex items-center gap-6 shadow-soft">
-                                                <div className="w-14 h-14 rounded-2xl bg-ieee-gold/10 flex items-center justify-center text-ieee-gold shadow-gold-glow">
-                                                    <Clock className="w-7 h-7" />
-                                                </div>
-                                                <div>
-                                                    <p className="text-[10px] text-ieee-gold font-black uppercase tracking-[0.2em] mb-1">Weekly Session</p>
-                                                    <p className="text-xl font-black text-white tracking-tight">{cell.schedule}</p>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div className="mt-12">
-                                            <Button onClick={() => { }} className="w-full h-16 rounded-2xl bg-ieee-gold text-ieee-navy font-black text-lg hover:bg-white transition-all shadow-gold uppercase tracking-widest">
+                                            <Button
+                                                onClick={() => window.open(cell.joinUrl, "_blank")}
+                                                className="w-full h-16 rounded-2xl bg-ieee-gold text-ieee-navy font-black text-lg hover:bg-white transition-all shadow-gold uppercase tracking-widest"
+                                            >
                                                 Join the Cell
                                             </Button>
                                         </div>

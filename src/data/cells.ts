@@ -3,21 +3,23 @@ export interface Cell {
     name: string;
     description: string;
     activities: string[];
-    schedule: string;
     image: string;
+    joinUrl: string;
 }
 
 export const cells: Cell[] = [
     {
         id: "cvtt",
-        name: "CVTT (Computer Vision & Tech Trends)",
-        description: "Focuses on the latest trends in computer vision, AI, and emerging technologies.",
+        name: "CVTT (Cellule de Valorisation & Transfert de Technologie)",
+        description: "A dedicated space for valorizing innovation projects and technology transfer. CVTT transforms student ideas into impactful technical and scientific projects, bridging the gap between research and industry.",
         activities: [
-            "Image processing workshops",
-            "Object detection projects",
-            "Deep learning seminars",
+            "Fostering campus-wide innovation",
+            "Technical & scientific project mentoring",
+            "Research-to-industry technology transfer",
+            "Creativity, prototyping & project valorization",
+            "Supporting student and faculty initiatives",
         ],
-        schedule: "Every Wednesday at 14:00",
         image: "/assets/cells/cvtt.jpg",
+        joinUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfGmHm7RQQGyEChSiTfYOihIWI9l0VZsenQUMV1e4kRfAJ83g/viewform",
     },
 ];
