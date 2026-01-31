@@ -42,6 +42,36 @@ export const events: Event[] = [
     },
 
     /* Past Events */
+      {
+      title: "CATIA Design Bootcamp",
+      description: "Bootcamp featuring two workshops on CATIA for mechanical design and CAD fundamentals.",
+        date: "December 24, 2025",
+      image: "/assets/events/catia.jpg",
+      category: "Bootcamp",
+      type: "bootcamp",
+      location: "EMSI Marrakesh",
+      isPast: true,
+      detailedDescription: "A hands-on CATIA bootcamp composed of two workshops aimed at introducing students to one of the most powerful CAD tools used in the mechanical, automotive, and aerospace industries. The bootcamp focused on building a strong foundation in CATIA, from understanding its industrial relevance to mastering its interface and core functionalities. Through practical guidance and real-world insights, participants strengthened their CAD and design skills while preparing for advanced engineering projects.",
+        speakers: [
+          {
+            name: "Yahya LOUKILI",
+            role: "Student at EMSI Marrakesh"
+          }
+        ],
+        objectives: [
+          "Introduce CATIA and its industrial applications",
+          "Understand the CATIA interface and core features",
+          "Develop foundational CAD and mechanical design skills",
+          "Prepare students for advanced design and engineering projects"
+        ],
+      tools: [
+        "CATIA V5",
+        "3D CAD Modeling",
+        "Mechanical Design",
+        "Part Design",
+        "Assembly Design"
+      ],
+    },
     {
         title: "Cyber Security & CTFs Bootcamp",
         description: "Intensive bootcamp covering cybersecurity fundamentals and Capture The Flag competitions.",
