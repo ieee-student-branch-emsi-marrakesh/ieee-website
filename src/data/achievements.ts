@@ -1,5 +1,5 @@
 /**
- * IEEE MC Marrakesh Achievements & Awards
+ * IEEE EMSI Marrakesh Achievements & Awards
  * Competitions where members participated and won prizes
  */
 

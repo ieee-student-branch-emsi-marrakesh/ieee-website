@@ -15,7 +15,7 @@ export default function Footer() {
                         <div className="flex items-center gap-3 mb-6">
                             <img
                                 src="/assets/logo.jpg"
-                                alt="IEEE MC Marrakesh Logo"
+                                alt="IEEE EMSI Marrakesh Logo"
                                 className="h-12 w-12 object-contain rounded-lg opacity-80"
                             />
                             <div className="flex flex-col">

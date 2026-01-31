@@ -1,5 +1,5 @@
 /**
- * Official IEEE MC Marrakesh Contact Information
+ * Official IEEE EMSI Marrakesh Contact Information
  * Centralized configuration for all social media links and contact details
  */
 
@@ -33,7 +33,7 @@ export const CONTACT_EMAIL = "studentbranchiee@gmail.com";
  */
 export const CONTACT_INFO: ContactInfo = {
     email: CONTACT_EMAIL,
-    location: "EMSI Centre, Marrakesh, Morocco",
+    location: "EMSI Guéliz, Marrakesh, Morocco",
 };
 
 /**
