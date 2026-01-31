@@ -68,8 +68,8 @@ export default function Cells() {
                                         </CardContent>
                                     </Card>
                                 </DialogTrigger>
-                                <DialogContent className="sm:max-w-[650px] bg-ieee-navy border border-ieee-gold/20 rounded-[2.5rem] p-0 overflow-hidden shadow-2xl [&>button]:text-white">
-                                    <div className="h-48 relative border-b border-ieee-gold/10 overflow-hidden">
+                                <DialogContent className="w-[95vw] sm:max-w-[650px] bg-ieee-navy border border-ieee-gold/20 rounded-[2rem] sm:rounded-[2.5rem] p-0 overflow-hidden shadow-2xl [&>button]:text-white max-h-[90vh] flex flex-col">
+                                    <div className="h-32 sm:h-48 relative border-b border-ieee-gold/10 overflow-hidden shrink-0">
                                         <img
                                             src={cell.image}
                                             alt={cell.name}
@@ -77,32 +77,32 @@ export default function Cells() {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-ieee-navy via-ieee-navy/40 to-transparent" />
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-20 h-[1px] bg-ieee-gold/20" />
-                                            <h2 className="mx-4 text-4xl font-black text-white/10 tracking-[0.5em] uppercase">{cell.id}</h2>
-                                            <div className="w-20 h-[1px] bg-ieee-gold/20" />
+                                            <div className="w-12 sm:w-20 h-[1px] bg-ieee-gold/20" />
+                                            <h2 className="mx-2 sm:mx-4 text-2xl sm:text-4xl font-black text-white/10 tracking-[0.3em] sm:tracking-[0.5em] uppercase">{cell.id}</h2>
+                                            <div className="w-12 sm:w-20 h-[1px] bg-ieee-gold/20" />
                                         </div>
                                     </div>
-                                    <div className="p-10">
-                                        <DialogHeader className="mb-10">
+                                    <div className="p-6 sm:p-10 overflow-y-auto custom-scrollbar">
+                                        <DialogHeader className="mb-6 sm:mb-10">
                                             <div className="flex items-center gap-2 mb-2">
-                                                <span className="text-xs font-black text-ieee-gold uppercase tracking-[0.3em]">Technical Cell</span>
+                                                <span className="text-[10px] sm:text-xs font-black text-ieee-gold uppercase tracking-[0.3em]">Technical Cell</span>
                                                 <div className="h-[1px] flex-grow bg-ieee-gold/20" />
                                             </div>
-                                            <DialogTitle className="text-4xl font-black text-white tracking-tight">{cell.name}</DialogTitle>
-                                            <DialogDescription className="text-gray-400 text-lg mt-4 leading-relaxed font-medium">
+                                            <DialogTitle className="text-2xl sm:text-4xl font-black text-white tracking-tight">{cell.name}</DialogTitle>
+                                            <DialogDescription className="text-gray-400 text-base sm:text-lg mt-3 sm:mt-4 leading-relaxed font-medium">
                                                 {cell.description}
                                             </DialogDescription>
                                         </DialogHeader>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
+                                        <div className="grid grid-cols-1 gap-6 sm:gap-10">
                                             <div>
-                                                <h4 className="font-bold text-white mb-6 flex items-center gap-3">
-                                                    <CheckCircle2 className="w-6 h-6 text-ieee-gold" />
-                                                    <span className="uppercase tracking-widest text-sm">Key Activities</span>
+                                                <h4 className="font-bold text-white mb-4 sm:mb-6 flex items-center gap-3">
+                                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-ieee-gold" />
+                                                    <span className="uppercase tracking-widest text-xs sm:text-sm">Key Activities</span>
                                                 </h4>
-                                                <ul className="grid grid-cols-1 gap-3">
+                                                <ul className="grid grid-cols-1 gap-2 sm:gap-3">
                                                     {cell.activities.map((activity, i) => (
-                                                        <li key={i} className="text-gray-300 flex items-center gap-3 text-base">
+                                                        <li key={i} className="text-gray-300 flex items-center gap-3 text-sm sm:text-base">
                                                             <span className="w-1.5 h-1.5 rounded-full bg-ieee-gold shadow-gold shrink-0" />
                                                             {activity}
                                                         </li>
@@ -110,15 +110,14 @@ export default function Cells() {
                                                 </ul>
                                             </div>
 
-                                        </div>
-
-                                        <div className="mt-12">
-                                            <Button
-                                                onClick={() => window.open(cell.joinUrl, "_blank")}
-                                                className="w-full h-16 rounded-2xl bg-ieee-gold text-ieee-navy font-black text-lg hover:bg-white transition-all shadow-gold uppercase tracking-widest"
-                                            >
-                                                Join the Cell
-                                            </Button>
+                                            <div className="mt-8 sm:mt-12">
+                                                <Button
+                                                    onClick={() => window.open(cell.joinUrl, "_blank")}
+                                                    className="w-full h-14 sm:h-16 rounded-xl sm:rounded-2xl bg-ieee-gold text-ieee-navy font-black text-base sm:text-lg hover:bg-white transition-all shadow-gold uppercase tracking-widest"
+                                                >
+                                                    Join the Cell
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
                                 </DialogContent>
