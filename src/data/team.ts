@@ -123,7 +123,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Youness SBAI",
         role: "IT and website Manager",
-        image: "/assets/team/sbai.jpg",
+        image: "/assets/team/sbai.jpeg",
         links: {
             gmail: "youness.sbai.work@gmail.com",
             linkedin: "https://www.linkedin.com/in/y-sbai/",
