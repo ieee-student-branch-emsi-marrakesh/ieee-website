@@ -131,7 +131,7 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
-        name: "Taib MOUTSSAOUI",
+        name: "Taib MOUTSAOUI",
         role: "IT and website Manager",
         image: "/assets/team/taib.jpeg",
         links: {
@@ -142,7 +142,7 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
-        name: "Yahya MIHANNE",
+        name: "Yahya MIHNANE",
         role: "HR Manager",
         image: "/assets/team/mihnane.jpg",
         links: {
