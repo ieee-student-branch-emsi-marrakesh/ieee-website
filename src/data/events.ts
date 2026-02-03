@@ -92,9 +92,7 @@ export const events: Event[] = [
             "Kali Linux",
             "Nmap",
             "Burp Suite",
-            "Wireshark",
-            "Metasploit",
-            "John the Ripper",
+            "Dogbolt"
         ],
     },
     {
