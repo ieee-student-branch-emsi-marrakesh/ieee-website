@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +8,64 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CONTACT_EMAIL, SOCIAL_LINKS, getMailtoLink } from "@/data/socials";
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+
+        try {
+            // Basic validation
+            if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+                setSubmitStatus('error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                setSubmitStatus('error');
+                return;
+            }
+
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`Contact from ${formData.name}`);
+            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+            const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+            
+            // Open email client in new tab using temporary link
+            const link = document.createElement('a');
+            link.href = mailtoLink;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Reset form on success
+            setFormData({ name: '', email: '', message: '' });
+            setSubmitStatus('success');
+        } catch (error) {
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <section id="contact" className="py-24 bg-ieee-navy-light relative overflow-hidden">
             {/* Background decoration */}
@@ -95,26 +154,59 @@ export default function Contact() {
                     >
                         <Card className="border border-white/5 bg-ieee-navy shadow-2xl rounded-[3rem] overflow-hidden p-2">
                             <CardContent className="p-12 bg-ieee-navy-light/40 rounded-[2.5rem] border border-white/5 backdrop-blur-sm">
-                                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                                <form className="space-y-8" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                                            <Input placeholder="John Doe" className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" />
+                                            <Input 
+                                                name="name"
+                                                value={formData.name}
+                                                onChange={handleInputChange}
+                                                placeholder="John Doe" 
+                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" 
+                                            />
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                                            <Input type="email" placeholder="john@example.com" className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" />
+                                            <Input 
+                                                name="email"
+                                                type="email" 
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                placeholder="john@example.com" 
+                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" 
+                                            />
                                         </div>
                                     </div>
                                     <div className="space-y-3">
                                         <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Message</label>
                                         <Textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleInputChange}
                                             placeholder="How can we help you?"
                                             className="min-h-[180px] rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all resize-none p-5"
                                         />
                                     </div>
-                                    <Button type="submit" className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em]">
-                                        Send Message
+                                    
+                                    {submitStatus === 'success' && (
+                                        <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
+                                            ✓ Message sent successfully! Your email client should open in a new tab.
+                                        </div>
+                                    )}
+                                    
+                                    {submitStatus === 'error' && (
+                                        <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium">
+                                            ✗ Please fill in all fields with valid information.
+                                        </div>
+                                    )}
+                                    
+                                    <Button 
+                                        type="submit" 
+                                        disabled={isSubmitting}
+                                        className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em] disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </Button>
                                 </form>
                             </CardContent>
