@@ -20,29 +20,40 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
     });
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+      e.preventDefault();
 
-        // Create mailto link with form data
-        const subject = encodeURIComponent("IEEE S.B Membership Application");
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\n` +
-            `Email: ${formData.email}\n` +
-            `Phone: ${formData.phone}\n` +
-            `Interests/Why Join: ${formData.interests}\n\n` +
-            `I would like to join IEEE Student Branch EMSI Marrakesh.`
-        );
+      // Trim values
+      const name = formData.name.trim();
+      const email = formData.email.trim();
+      const phone = formData.phone.trim();
+      const interests = formData.interests.trim();
 
-        // Open email client
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      if (!name || !email || !phone) {
+        alert("Please fill all required fields.");
+        return;
+      }
 
-        // Close dialog and reset form
-        onClose();
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            interests: "",
-        });
+      const subject = encodeURIComponent("IEEE S.B Membership Application");
+
+      const body = encodeURIComponent(
+        `IEEE Student Branch EMSI Marrakesh Membership Request
+
+        ----------------------------
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+
+        Why Join:
+          ${interests || "Not provided"}
+
+        ----------------------------
+          `
+      );
+
+      const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+      // Open email client safely
+      window.open(mailtoLink, "_blank");
     };
 
     return (
