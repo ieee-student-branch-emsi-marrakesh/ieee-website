@@ -70,7 +70,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
                     />
 
                     {/* Dialog */}
-                    <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+                    <div className="fixed inset-x-0 top-0 flex items-start justify-center z-50 p-4 pt-20">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
