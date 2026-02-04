@@ -38,15 +38,12 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
       const body = encodeURIComponent(
         `IEEE Student Branch EMSI Marrakesh Membership Request
 
-        ----------------------------
-        Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
 
-        Why Join:
-          ${interests || "Not provided"}
-
-        ----------------------------
+Why Join:
+  ${interests || "Not provided"}
           `
       );
 
