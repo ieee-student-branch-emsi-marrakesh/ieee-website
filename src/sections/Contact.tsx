@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Github, Linkedin, Instagram } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CONTACT_EMAIL, SOCIAL_LINKS, getMailtoLink } from "@/data/socials";
+import RobotCaptcha from "@/components/RobotCaptcha";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -16,25 +17,8 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    // Captcha state
-    const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
-    const [userAnswer, setUserAnswer] = useState("");
-
-    // Initialize captcha function
-    const refreshCaptcha = () => {
-        setCaptcha({
-            a: Math.floor(Math.random() * 10) + 1,
-            b: Math.floor(Math.random() * 10) + 1
-        });
-        setUserAnswer("");
-    };
-
-    // Run once on mount
-    useState(() => {
-        refreshCaptcha();
-    });
-
-    const isCaptchaCorrect = parseInt(userAnswer) === captcha.a + captcha.b;
+    // Bot protection state
+    const [isVerified, setIsVerified] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -47,7 +31,7 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!isCaptchaCorrect) {
+        if (!isVerified) {
             setSubmitStatus('error');
             return;
         }
@@ -86,8 +70,8 @@ export default function Contact() {
             // Reset form on success
             setFormData({ name: '', email: '', message: '' });
             setSubmitStatus('success');
-            // Refresh captcha for next time
-            refreshCaptcha();
+            // Reset verification
+            setIsVerified(false);
         } catch (error) {
             setSubmitStatus('error');
         } finally {
@@ -217,36 +201,17 @@ export default function Contact() {
                                         />
                                     </div>
 
-                                    {/* Captcha - Only show after user starts typing */}
+                                    {/* Bot Protection - Only show after user starts typing */}
                                     {(formData.name || formData.email || formData.message) && (
                                         <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            className="p-6 rounded-[2rem] bg-ieee-navy border border-white/5 space-y-4"
+                                            className="px-1"
                                         >
-                                            <label className="text-[10px] font-black text-ieee-gold uppercase tracking-widest ml-1 flex items-center gap-2">
-                                                Security Check
-                                            </label>
-                                            <div className="flex items-center gap-6">
-                                                <div className="bg-ieee-navy-light px-6 py-3 rounded-2xl border border-white/5 text-white font-black text-lg">
-                                                    {captcha.a} + {captcha.b} =
-                                                </div>
-                                                <Input
-                                                    required
-                                                    type="text"
-                                                    inputMode="numeric"
-                                                    pattern="[0-9]*"
-                                                    placeholder="?"
-                                                    value={userAnswer}
-                                                    onChange={(e) => setUserAnswer(e.target.value.replace(/[^0-9]/g, ''))}
-                                                    className="h-14 w-28 rounded-2xl bg-ieee-navy-light border-white/5 text-white text-center font-bold focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
-                                                />
-                                                {userAnswer && (
-                                                    <div className={`p-2 rounded-full ${isCaptchaCorrect ? "bg-green-500/20 text-green-500" : "bg-red-500/20 text-red-500"}`}>
-                                                        {isCaptchaCorrect ? "✓" : "✗"}
-                                                    </div>
-                                                )}
-                                            </div>
+                                            <RobotCaptcha
+                                                onVerify={(v) => setIsVerified(v)}
+                                                reset={submitStatus === 'success'}
+                                            />
                                         </motion.div>
                                     )}
 
@@ -264,7 +229,7 @@ export default function Contact() {
 
                                     <Button
                                         type="submit"
-                                        disabled={isSubmitting || !isCaptchaCorrect}
+                                        disabled={isSubmitting || !isVerified}
                                         className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed group"
                                     >
                                         {isSubmitting ? 'Sending...' : 'Send Message'}
