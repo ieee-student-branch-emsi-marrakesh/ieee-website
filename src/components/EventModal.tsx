@@ -6,6 +6,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import { Calendar, MapPin, Users, Target, Wrench, ExternalLink } from "lucide-react";
+import MediaCarousel from "./MediaCarousel";
 
 interface EventModalProps {
     event: Event | null;
@@ -28,17 +29,8 @@ export default function EventModal({ event, open, onOpenChange }: EventModalProp
                     </DialogTitle>
                 </DialogHeader>
 
-                {/* Event Image */}
-                <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-ieee-navy-light mb-4 sm:mb-6">
-                    <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                        }}
-                    />
-                </div>
+                {/* Media Carousel */}
+                <MediaCarousel media={event.media || [{ type: "image", url: event.image }]} />
 
                 {/* Date & Location */}
                 <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm">
@@ -114,27 +106,6 @@ export default function EventModal({ event, open, onOpenChange }: EventModalProp
                                 >
                                     {tool}
                                 </span>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Gallery (if available) */}
-                {event.gallery && event.gallery.length > 0 && (
-                    <div className="mb-3 sm:mb-4">
-                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">Gallery</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                            {event.gallery.map((image, index) => (
-                                <div
-                                    key={index}
-                                    className="aspect-video rounded-lg overflow-hidden bg-ieee-navy-light"
-                                >
-                                    <img
-                                        src={image}
-                                        alt={`${event.title} - Image ${index + 1}`}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
                             ))}
                         </div>
                     </div>

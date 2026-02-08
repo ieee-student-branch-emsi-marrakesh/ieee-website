@@ -3,11 +3,18 @@ export interface Speaker {
     role: string;
 }
 
+export interface Media {
+    type: "image" | "video";
+    url: string;
+    thumbnail?: string; // Optional for videos
+}
+
 export interface Event {
+    id: string; // Used for identifying folder in public/assets/events/[id]
     title: string;
     description: string;
     date: string;
-    image: string;
+    image: string; // Keep this as main thumbnail
     category: "Workshop" | "Competition" | "Talk" | "Bootcamp";
     isPast: boolean;
     type: "workshop" | "bootcamp" | "competition" | "talk";
@@ -16,17 +23,19 @@ export interface Event {
     speakers?: Speaker[];
     objectives?: string[];
     tools?: string[];
-    gallery?: string[];
+    gallery?: string[]; // Deprecated in favor of media
+    media?: Media[];
     registrationLink?: string;
 }
 
 export const events: Event[] = [
     /* Upcoming Events */
     {
+        id: "vision-ai",
         title: "Vision AI Competition",
         description: "AI Projects Competition.",
         date: "February 14, 2026",
-        image: "/assets/events/vision_ai.jpg",
+        image: "/assets/events/2025-2026/vision_ai/thumb.jpg",
         category: "Competition",
         type: "competition",
         location: "EMSI Marrakesh",
@@ -38,45 +47,57 @@ export const events: Event[] = [
             "Present technical solutions to industry experts",
             "Network with AI professionals and fellow students"
         ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/thumb.jpg" },
+        ],
         registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSevHzkE1GcGxOSTjUK9pt-V-3Hbi6tH4iXHZ2oefE9-M5Q0dQ/viewform?usp=sharing&ouid=105034487534648453116",
     },
 
     /* Past Events */
-      {
-      title: "CATIA Design Bootcamp",
-      description: "Bootcamp featuring two workshops on CATIA for mechanical design and CAD fundamentals.",
+    {
+        id: "catia-bootcamp",
+        title: "CATIA Design Bootcamp",
+        description: "Bootcamp featuring two workshops on CATIA for mechanical design and CAD fundamentals.",
         date: "December 24, 2025",
-      image: "/assets/events/catia.jpg",
-      category: "Bootcamp",
-      type: "bootcamp",
-      location: "EMSI Marrakesh",
-      isPast: true,
-      detailedDescription: "A hands-on CATIA bootcamp composed of two workshops aimed at introducing students to one of the most powerful CAD tools used in the mechanical, automotive, and aerospace industries. The bootcamp focused on building a strong foundation in CATIA, from understanding its industrial relevance to mastering its interface and core functionalities. Through practical guidance and real-world insights, participants strengthened their CAD and design skills while preparing for advanced engineering projects.",
+        image: "/assets/events/2025-2026/catia/thumb.jpg",
+        category: "Bootcamp",
+        type: "bootcamp",
+        location: "EMSI Marrakesh",
+        isPast: true,
+        detailedDescription: "A hands-on CATIA bootcamp composed of two workshops aimed at introducing students to one of the most powerful CAD tools used in the mechanical, automotive, and aerospace industries. The bootcamp focused on building a strong foundation in CATIA, from understanding its industrial relevance to mastering its interface and core functionalities. Through practical guidance and real-world insights, participants strengthened their CAD and design skills while preparing for advanced engineering projects.",
         speakers: [
-          {
-            name: "Yahya LOUKILI",
-            role: "Student at EMSI Marrakesh"
-          }
+            {
+                name: "Yahya LOUKILI",
+                role: "Student at EMSI Marrakesh"
+            }
         ],
         objectives: [
-          "Introduce CATIA and its industrial applications",
-          "Understand the CATIA interface and core features",
-          "Develop foundational CAD and mechanical design skills",
-          "Prepare students for advanced design and engineering projects"
+            "Introduce CATIA and its industrial applications",
+            "Understand the CATIA interface and core features",
+            "Develop foundational CAD and mechanical design skills",
+            "Prepare students for advanced design and engineering projects"
         ],
-      tools: [
-        "CATIA V5",
-        "3D CAD Modeling",
-        "Mechanical Design",
-        "Part Design",
-        "Assembly Design"
-      ],
+        tools: [
+            "CATIA V5",
+            "3D CAD Modeling",
+            "Mechanical Design",
+            "Part Design",
+            "Assembly Design"
+        ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/catia/photo1.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/catia/photo2.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/catia/photo3.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/catia/photo4.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/catia/photo5.jpg" },
+        ]
     },
     {
+        id: "cybersecurity_and_ctfs_bootcamp",
         title: "Cyber Security & CTFs Bootcamp",
         description: "Intensive bootcamp covering cybersecurity fundamentals and Capture The Flag competitions.",
         date: "December 10, 2025",
-        image: "/assets/events/cyber_ctf.jpg",
+        image: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/thumb.jpg",
         category: "Bootcamp",
         type: "bootcamp",
         location: "EMSI Marrakesh",
@@ -94,12 +115,26 @@ export const events: Event[] = [
             "Burp Suite",
             "Dogbolt"
         ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo1.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo2.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo3.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo4.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo5.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo6.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo7.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo8.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo9.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo10.jpg" },
+            { type: "video", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/video.mp4" },
+        ]
     },
     {
+        id: "initiation-entrepreneuriat",
         title: "Initiation en Entrepreneuriat",
         description: "Introduction to entrepreneurship and startup culture.",
         date: "November 19, 2025",
-        image: "/assets/events/init_entrep.png",
+        image: "/assets/events/2025-2026/entrepreneuriat/thumb.png",
         category: "Talk",
         type: "talk",
         location: "EMSI Marrakesh",
@@ -111,36 +146,47 @@ export const events: Event[] = [
                 role: "Doctor in Economics - Professor at EMSI Marrakesh - Business Consultant"
             }
         ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo1.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo2.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo3.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo5.jpg" },
+        ]
     },
     {
-      title: "EMSIstes INNOV'25",
-      description: "Innovation competition focused on smart systems and emerging technologies.",
-      date: "May 24, 2025",
-      image: "/assets/events/emsistes_innov25.jpg",
-      category: "Competition",
-      type: "competition",
-      location: "EMSI Marrakesh",
-      isPast: true,
-      detailedDescription: "EMSIstes INNOV is an innovation-driven competition that brought together students to design and prototype smart systems addressing real-world challenges. The competition focused on key domains such as HealthTech, Smart Mobility, Renewable Energy, and Artificial Intelligence. Teams worked collaboratively to develop impactful solutions, combining technical skills, creativity, and entrepreneurial thinking, before presenting their projects to a jury.",
-      objectives: [
-        "Encourage innovation and problem-solving using smart systems",
-        "Apply AI and emerging technologies to real-world challenges",
-        "Promote teamwork and interdisciplinary collaboration",
-        "Expose students to project pitching and evaluation by a jury"
-      ],
-      tools: [
-        "Artificial Intelligence",
-        "IoT & Smart Systems",
-        "Renewable Energy Technologies",
-        "Data Analysis",
-        "Prototyping Tools"
-      ],
+        id: "emsistes-innov25",
+        title: "EMSIstes INNOV'25",
+        description: "Innovation competition focused on smart systems and emerging technologies.",
+        date: "May 24, 2025",
+        image: "/assets/events/2024-2025/emsistes_innov/thumb.jpg",
+        category: "Competition",
+        type: "competition",
+        location: "EMSI Marrakesh",
+        isPast: true,
+        detailedDescription: "EMSIstes INNOV is an innovation-driven competition that brought together students to design and prototype smart systems addressing real-world challenges. The competition focused on key domains such as HealthTech, Smart Mobility, Renewable Energy, and Artificial Intelligence. Teams worked collaboratively to develop impactful solutions, combining technical skills, creativity, and entrepreneurial thinking, before presenting their projects to a jury.",
+        objectives: [
+            "Encourage innovation and problem-solving using smart systems",
+            "Apply AI and emerging technologies to real-world challenges",
+            "Promote teamwork and interdisciplinary collaboration",
+            "Expose students to project pitching and evaluation by a jury"
+        ],
+        tools: [
+            "Artificial Intelligence",
+            "IoT & Smart Systems",
+            "Renewable Energy Technologies",
+            "Data Analysis",
+            "Prototyping Tools"
+        ],
+        media: [
+            { type: "image", url: "/assets/events/2024-2025/emsistes_innov/thumb.jpg" },
+        ]
     },
     {
+        id: "solidworks-workshop",
         title: "SolidWorks Workshop",
         description: "Hands-on workshop on 3D CAD modeling using SolidWorks.",
         date: "April 30, 2025",
-        image: "/assets/events/solidworks.jpg",
+        image: "/assets/events/2024-2025/solidworks/thumb.jpg",
         category: "Workshop",
         type: "workshop",
         location: "EMSI Marrakesh",
@@ -158,12 +204,16 @@ export const events: Event[] = [
             "Assembly Design",
             "Technical Drawings"
         ],
+        media: [
+            { type: "image", url: "/assets/events/2024-2025/solidworks/thumb.jpg" },
+        ]
     },
     {
+        id: "aws-workshop",
         title: "Cloud Computing Basics With AWS",
         description: "Introduction to cloud computing concepts and AWS services.",
         date: "April 24, 2025",
-        image: "/assets/events/aws.jpg",
+        image: "/assets/events/2024-2025/cloud_computing_with_aws/thumb.jpg",
         category: "Workshop",
         type: "workshop",
         location: "EMSI Marrakesh",
@@ -183,12 +233,20 @@ export const events: Event[] = [
             "CloudFormation",
             "AWS CLI"
         ],
+        media: [
+            { type: "image", url: "/assets/events/2024-2025/cloud_computing_with_aws/photo1.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/cloud_computing_with_aws/photo2.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/cloud_computing_with_aws/photo3.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/cloud_computing_with_aws/photo4.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/cloud_computing_with_aws/photo5.jpg" },
+        ]
     },
     {
+        id: "linux-workshop",
         title: "Power Up with Linux: Learn, Practice, Advance",
         description: "Comprehensive Linux fundamentals and command-line mastery.",
         date: "April 19, 2025",
-        image: "/assets/events/linux.jpg",
+        image: "/assets/events/2024-2025/linux/thumb.jpg",
         category: "Workshop",
         type: "workshop",
         location: "EMSI Marrakesh",
@@ -212,5 +270,10 @@ export const events: Event[] = [
             "SSH",
             "Package Managers (apt, yum)"
         ],
+        media: [
+            { type: "image", url: "/assets/events/2024-2025/linux/photo1.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/linux/photo2.jpg" },
+            { type: "image", url: "/assets/events/2024-2025/linux/photo3.jpg" },
+        ]
     },
 ];
