@@ -233,10 +233,12 @@ export default function Contact() {
                                                 </div>
                                                 <Input
                                                     required
-                                                    type="number"
+                                                    type="text"
+                                                    inputMode="numeric"
+                                                    pattern="[0-9]*"
                                                     placeholder="?"
                                                     value={userAnswer}
-                                                    onChange={(e) => setUserAnswer(e.target.value)}
+                                                    onChange={(e) => setUserAnswer(e.target.value.replace(/[^0-9]/g, ''))}
                                                     className="h-14 w-28 rounded-2xl bg-ieee-navy-light border-white/5 text-white text-center font-bold focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
                                                 />
                                                 {userAnswer && (
