@@ -49,6 +49,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ::selection {
+    @apply bg-ieee-blue/30 text-white;
+  }
 }
 
 html {
