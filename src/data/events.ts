@@ -126,7 +126,6 @@ export const events: Event[] = [
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo8.jpg" },
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo9.jpg" },
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo10.jpg" },
-            { type: "video", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/video.mp4" },
         ]
     },
     {
