@@ -16,6 +16,26 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+    // Captcha state
+    const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
+    const [userAnswer, setUserAnswer] = useState("");
+
+    // Initialize captcha function
+    const refreshCaptcha = () => {
+        setCaptcha({
+            a: Math.floor(Math.random() * 10) + 1,
+            b: Math.floor(Math.random() * 10) + 1
+        });
+        setUserAnswer("");
+    };
+
+    // Run once on mount
+    useState(() => {
+        refreshCaptcha();
+    });
+
+    const isCaptchaCorrect = parseInt(userAnswer) === captcha.a + captcha.b;
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -26,6 +46,12 @@ export default function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!isCaptchaCorrect) {
+            setSubmitStatus('error');
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitStatus('idle');
 
@@ -47,7 +73,7 @@ export default function Contact() {
             const subject = encodeURIComponent(`Contact from ${formData.name}`);
             const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
             const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-            
+
             // Open email client in new tab using temporary link
             const link = document.createElement('a');
             link.href = mailtoLink;
@@ -56,10 +82,12 @@ export default function Contact() {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
+
             // Reset form on success
             setFormData({ name: '', email: '', message: '' });
             setSubmitStatus('success');
+            // Refresh captcha for next time
+            refreshCaptcha();
         } catch (error) {
             setSubmitStatus('error');
         } finally {
@@ -158,23 +186,23 @@ export default function Contact() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                                            <Input 
+                                            <Input
                                                 name="name"
                                                 value={formData.name}
                                                 onChange={handleInputChange}
-                                                placeholder="John Doe" 
-                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" 
+                                                placeholder="John Doe"
+                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
                                             />
                                         </div>
                                         <div className="space-y-3">
                                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                                            <Input 
+                                            <Input
                                                 name="email"
-                                                type="email" 
+                                                type="email"
                                                 value={formData.email}
                                                 onChange={handleInputChange}
-                                                placeholder="john@example.com" 
-                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all" 
+                                                placeholder="john@example.com"
+                                                className="h-16 rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
                                             />
                                         </div>
                                     </div>
@@ -188,23 +216,54 @@ export default function Contact() {
                                             className="min-h-[180px] rounded-2xl bg-ieee-navy border-white/5 text-white placeholder:text-gray-600 focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all resize-none p-5"
                                         />
                                     </div>
-                                    
+
+                                    {/* Captcha - Only show after user starts typing */}
+                                    {(formData.name || formData.email || formData.message) && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="p-6 rounded-[2rem] bg-ieee-navy border border-white/5 space-y-4"
+                                        >
+                                            <label className="text-[10px] font-black text-ieee-gold uppercase tracking-widest ml-1 flex items-center gap-2">
+                                                Security Check
+                                            </label>
+                                            <div className="flex items-center gap-6">
+                                                <div className="bg-ieee-navy-light px-6 py-3 rounded-2xl border border-white/5 text-white font-black text-lg">
+                                                    {captcha.a} + {captcha.b} =
+                                                </div>
+                                                <Input
+                                                    required
+                                                    type="number"
+                                                    placeholder="?"
+                                                    value={userAnswer}
+                                                    onChange={(e) => setUserAnswer(e.target.value)}
+                                                    className="h-14 w-28 rounded-2xl bg-ieee-navy-light border-white/5 text-white text-center font-bold focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
+                                                />
+                                                {userAnswer && (
+                                                    <div className={`p-2 rounded-full ${isCaptchaCorrect ? "bg-green-500/20 text-green-500" : "bg-red-500/20 text-red-500"}`}>
+                                                        {isCaptchaCorrect ? "✓" : "✗"}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </motion.div>
+                                    )}
+
                                     {submitStatus === 'success' && (
                                         <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
                                             ✓ Message sent successfully! Your email client should open in a new tab.
                                         </div>
                                     )}
-                                    
+
                                     {submitStatus === 'error' && (
                                         <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium">
-                                            ✗ Please fill in all fields with valid information.
+                                            ✗ Please fill in all fields correctly (including the security check).
                                         </div>
                                     )}
-                                    
-                                    <Button 
-                                        type="submit" 
-                                        disabled={isSubmitting}
-                                        className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em] disabled:opacity-50 disabled:cursor-not-allowed"
+
+                                    <Button
+                                        type="submit"
+                                        disabled={isSubmitting || !isCaptchaCorrect}
+                                        className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed group"
                                     >
                                         {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </Button>

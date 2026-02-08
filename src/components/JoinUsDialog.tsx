@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Mail, User, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,24 +19,51 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
         interests: "",
     });
 
+    // Captcha state
+    const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
+    const [userAnswer, setUserAnswer] = useState("");
+
+    // Initialize captcha
+    const refreshCaptcha = () => {
+        setCaptcha({
+            a: Math.floor(Math.random() * 10) + 1,
+            b: Math.floor(Math.random() * 10) + 1
+        });
+        setUserAnswer("");
+    };
+
+    // Refresh when dialog opens
+    useEffect(() => {
+        if (isOpen) {
+            refreshCaptcha();
+        }
+    }, [isOpen]);
+
+    const isCaptchaCorrect = parseInt(userAnswer) === captcha.a + captcha.b;
+
     const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      // Trim values
-      const name = formData.name.trim();
-      const email = formData.email.trim();
-      const phone = formData.phone.trim();
-      const interests = formData.interests.trim();
+        if (!isCaptchaCorrect) {
+            alert("Please solve the captcha correctly.");
+            return;
+        }
 
-      if (!name || !email || !phone) {
-        alert("Please fill all required fields.");
-        return;
-      }
+        // Trim values
+        const name = formData.name.trim();
+        const email = formData.email.trim();
+        const phone = formData.phone.trim();
+        const interests = formData.interests.trim();
 
-      const subject = encodeURIComponent("IEEE S.B Membership Application");
+        if (!name || !email || !phone) {
+            alert("Please fill all required fields.");
+            return;
+        }
 
-      const body = encodeURIComponent(
-        `IEEE Student Branch EMSI Marrakesh Membership Request
+        const subject = encodeURIComponent("IEEE S.B Membership Application");
+
+        const body = encodeURIComponent(
+            `IEEE Student Branch EMSI Marrakesh Membership Request
 
 Name: ${name}
 Email: ${email}
@@ -45,12 +72,15 @@ Phone: ${phone}
 Why Join:
   ${interests || "Not provided"}
           `
-      );
+        );
 
-      const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+        const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
-      // Open email client safely
-      window.open(mailtoLink, "_blank");
+        // Open email client safely
+        window.open(mailtoLink, "_blank");
+
+        // Refresh captcha for next time
+        refreshCaptcha();
     };
 
     return (
@@ -165,6 +195,37 @@ Why Join:
                                         />
                                     </div>
 
+                                    {/* Captcha - Only show after user starts typing */}
+                                    {(formData.name || formData.email || formData.phone || formData.interests) && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3"
+                                        >
+                                            <label className="text-[10px] font-black text-ieee-gold uppercase tracking-widest flex items-center gap-2">
+                                                Security Check
+                                            </label>
+                                            <div className="flex items-center gap-4">
+                                                <div className="bg-ieee-navy px-4 py-2 rounded-xl border border-white/5 text-white font-bold">
+                                                    {captcha.a} + {captcha.b} =
+                                                </div>
+                                                <Input
+                                                    required
+                                                    type="number"
+                                                    placeholder="Answer"
+                                                    value={userAnswer}
+                                                    onChange={(e) => setUserAnswer(e.target.value)}
+                                                    className="h-12 w-24 rounded-xl bg-ieee-navy border-white/5 text-white focus-visible:ring-ieee-gold focus-visible:border-ieee-gold/50 transition-all"
+                                                />
+                                                {userAnswer && (
+                                                    <span className={`text-sm font-bold ${isCaptchaCorrect ? "text-green-500" : "text-red-500"}`}>
+                                                        {isCaptchaCorrect ? "✓ Correct" : "✗ Wrong"}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </motion.div>
+                                    )}
+
                                     {/* Submit Button */}
                                     <div className="flex gap-4 pt-4">
                                         <Button
@@ -177,7 +238,8 @@ Why Join:
                                         </Button>
                                         <Button
                                             type="submit"
-                                            className="flex-1 h-14 rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold font-black uppercase tracking-wider"
+                                            disabled={!isCaptchaCorrect}
+                                            className="flex-1 h-14 rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold font-black uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed group"
                                         >
                                             Submit Application
                                         </Button>
