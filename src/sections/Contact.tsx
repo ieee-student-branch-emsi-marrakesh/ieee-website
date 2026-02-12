@@ -53,19 +53,22 @@ export default function Contact() {
                 return;
             }
 
-            // Create mailto link with form data
-            const subject = encodeURIComponent(`Contact from ${formData.name}`);
-            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-            const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+            // Send email using Resend API
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                }),
+            });
 
-            // Open email client in new tab using temporary link
-            const link = document.createElement('a');
-            link.href = mailtoLink;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
 
             // Reset form on success
             setFormData({ name: '', email: '', message: '' });
@@ -73,6 +76,7 @@ export default function Contact() {
             // Reset verification
             setIsVerified(false);
         } catch (error) {
+            console.error('Contact form error:', error);
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
@@ -217,7 +221,7 @@ export default function Contact() {
 
                                     {submitStatus === 'success' && (
                                         <div className="p-4 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
-                                            ✓ Message sent successfully! Your email client should open in a new tab.
+                                            ✓ Message sent successfully! We'll get back to you soon.
                                         </div>
                                     )}
 

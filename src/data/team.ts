@@ -193,4 +193,14 @@ export const teamMembers: TeamMember[] = [
             instagram: "https://www.instagram.com/_ikramaor"
         },
     },
+    {
+        name: "Ayoub EL AANBRI",
+        role: "Photographer",
+        image: "/assets/team/ayoub.jpg",
+        links: {
+            gmail: "ayoubelaanbri@gmail.com",
+            linkedin: "https://www.linkedin.com/in/ayoub-el-aanbri-759a33345",
+            instagram: "https://www.instagram.com/Ayoub_sud_12"
+        }
+    }
 ];

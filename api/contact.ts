@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { buildApplicationEmail } from './joinus-template';
+import { buildContactEmail } from './contact-template';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -10,22 +10,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { fullName, email, phone, whyJoin } = req.body;
+    const { name, email, message } = req.body;
 
-    if (!fullName || !email || !phone) {
+    if (!name || !email || !message) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     const data = await resend.emails.send({
-      from: 'IEEE Recruitment <onboarding@resend.dev>',
+      from: 'IEEE Contact <onboarding@resend.dev>',
       to: ['studentbranchiee@gmail.com'],
       replyTo: email,
-      subject: `🎓 New IEEE Membership Application — ${fullName}`,
-      html: buildApplicationEmail({
-        fullName,
+      subject: `📧 New Contact Message — ${name}`,
+      html: buildContactEmail({
+        name,
         email,
-        phone,
-        whyJoin: whyJoin || 'Not provided',
+        message,
       }),
     });
 
