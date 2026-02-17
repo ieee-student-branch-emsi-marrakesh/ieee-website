@@ -155,7 +155,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Salah Eddine EL KHAMSI",
         role: "Designer",
-        image: "/assets/team/salah.jpeg",
+        image: "/assets/team/salah.jpg",
         links: {
             gmail: "elkhamsi.conan@gmail.com",
             linkedin: "https://www.linkedin.com/in/salah-eddine-el-khamsi",
