@@ -14,7 +14,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Yahya LOUKILI",
         role: "President",
-        image: "/assets/team/loukili.jpeg",
+        image: "/assets/team/loukili.jpg",
         links: {
             gmail: "loukiliyahya17@gmail.com",
             linkedin: "https://www.linkedin.com/in/loukili-yahya-009338313/",
@@ -64,7 +64,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Rouaa ALHAREEBI",
         role: "Communication and social Media Manager",
-        image: "/assets/team/rouaa.jpeg",
+        image: "/assets/team/rouaa.jpg",
         links: {
             gmail: "rouaaalhareebi@gmail.com",
             linkedin: "https://www.linkedin.com/in/rouaa-alhoraibi-272471352",
@@ -133,7 +133,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Taib MOUTSAOUI",
         role: "IT and website Manager",
-        image: "/assets/team/taib.jpeg",
+        image: "/assets/team/taib.jpg",
         links: {
             gmail: "taibmoutasaoui@gmail.com",
             linkedin: "http://linkedin.com/in/taib-moutasaoui-b03411239",
