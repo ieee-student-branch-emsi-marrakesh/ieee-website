@@ -14,7 +14,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Yahya LOUKILI",
         role: "President",
-        image: "/assets/team/loukili.jpg",
+        image: "/assets/team/yahya_loukili.jpg",
         links: {
             gmail: "loukiliyahya17@gmail.com",
             linkedin: "https://www.linkedin.com/in/loukili-yahya-009338313/",
@@ -24,7 +24,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Imane HAJAOUI",
         role: "Vice President",
-        image: "/assets/team/hajaoui.jpg",
+        image: "/assets/team/imane_hajaoui.jpg",
         links: {
             gmail: "imanehajaoui194@gmail.com",
             linkedin: "https://www.linkedin.com/in/imane-hajaoui",
@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Basma LAHMIMSI",
         role: "Secretary",
-        image: "/assets/team/basma.jpg",
+        image: "/assets/team/basma_lahmimsi.jpg",
         links: {
             gmail: "basmalahmimsi1@gmail.com",
             linkedin: "https://www.linkedin.com/in/basmalahmimsi",
@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Hiba BETTY",
         role: "Secretary",
-        image: "/assets/team/betty.jpg",
+        image: "/assets/team/hiba_betty.jpg",
         links: {
             gmail: "bettyhiba72@gmail.com",
             linkedin: "https://www.linkedin.com/in/hiba-betty-28ab62313",
@@ -55,7 +55,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Amina TAOURIRI",
         role: "Treasurer",
-        image: "/assets/team/amina.jpg",
+        image: "/assets/team/amina_taouriri.jpg",
         links: {
             linkedin: "https://www.linkedin.com/in/taouriri-amina-557095335",
             instagram: "https://www.instagram.com/aminaa_taouriri",
@@ -64,7 +64,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Rouaa ALHAREEBI",
         role: "Communication and social Media Manager",
-        image: "/assets/team/rouaa.jpg",
+        image: "/assets/team/rouaa_alhareebi.jpg",
         links: {
             gmail: "rouaaalhareebi@gmail.com",
             linkedin: "https://www.linkedin.com/in/rouaa-alhoraibi-272471352",
@@ -73,7 +73,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Hiba CHAOUI",
         role: "Communication and social Media Manager",
-        image: "/assets/team/chaoui.jpeg",
+        image: "/assets/team/hiba_chaoui.jpeg",
         links: {
             gmail: "hiba.chaoui221@gmail.com",
             linkedin: "https://www.linkedin.com/in/hiba-chaoui-661a52302",
@@ -83,7 +83,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Marwa BOULLY",
         role: "Equipment and logistic Manager",
-        image: "/assets/team/boully.jpeg",
+        image: "/assets/team/marwa_boully.jpeg",
         links: {
             gmail: "boullymarwa9@gmail.com",
             linkedin: "https://www.linkedin.com/in/marwa-boully-4b7717313",
@@ -94,7 +94,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Fatima-Ezzahra MOUHSINE",
         role: "Equipment and logistic Manager",
-        image: "/assets/team/mouhsine.jpg",
+        image: "/assets/team/fatima-ezzahra_mouhsine.jpg",
         links: {
             gmail: "fezzhra0@gmail.com",
             linkedin: "https://www.linkedin.com/in/fatima-ezzharae-mouhsine-2270b628a",
@@ -104,7 +104,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Aya EDDANIAOUI",
         role: "Events and competitions Manager",
-        image: "/assets/team/aya.jpeg",
+        image: "/assets/team/aya_eddaniaoui.jpeg",
         links: {
             gmail: "eddaniaouiaya@gmail.com",
             linkedin: "https://www.linkedin.com/in/aya-eddaniaoui-464713344",
@@ -115,7 +115,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Nour El Houda NASSEF",
         role: "Events and competitions Manager",
-        image: "/assets/team/nour.jpeg",
+        image: "/assets/team/nour-el-houda_nassef.jpeg",
         links: {
             gmail: "nourelhouda.nassef@gmail.com",
         },
@@ -123,7 +123,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Youness SBAI",
         role: "IT and website Manager",
-        image: "/assets/team/sbai.jpeg",
+        image: "/assets/team/youness_sbai.jpeg",
         links: {
             gmail: "youness.sbai.work@gmail.com",
             linkedin: "https://www.linkedin.com/in/y-sbai/",
@@ -131,9 +131,9 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
-        name: "Taib MOUTSAOUI",
+        name: "Taib MOUTASAOUI",
         role: "IT and website Manager",
-        image: "/assets/team/taib.jpg",
+        image: "/assets/team/taib_moutasaoui.jpg",
         links: {
             gmail: "taibmoutasaoui@gmail.com",
             linkedin: "http://linkedin.com/in/taib-moutasaoui-b03411239",
@@ -144,7 +144,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Yahya MIHNANE",
         role: "HR Manager",
-        image: "/assets/team/mihnane.jpg",
+        image: "/assets/team/yahya_mihnane.jpg",
         links: {
             gmail: "yahyamihnane0@gmail.com",
             linkedin: "https://www.linkedin.com/in/yahya-mihnane-098206250",
@@ -155,7 +155,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Salah Eddine EL KHAMSI",
         role: "Designer",
-        image: "/assets/team/salah.jpg",
+        image: "/assets/team/salah-eddine_el-khamsi.jpg",
         links: {
             gmail: "elkhamsi.conan@gmail.com",
             linkedin: "https://www.linkedin.com/in/salah-eddine-el-khamsi",
@@ -165,7 +165,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Abderahmane ELADNANI",
         role: "Designer",
-        image: "/assets/team/adnani.png",
+        image: "/assets/team/abderahmane_el-adnani.png",
         links: {
             gmail: "m.a.eladnani1@gmail.com",
             linkedin: "https://www.linkedin.com/in/mly-abderrahmane-el-adnani-b4477b298/",
@@ -176,7 +176,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Abdelqodouss HADADI",
         role: "Video Editor",
-        image: "/assets/team/abdlqodos.jpg",
+        image: "/assets/team/abdlqodos_hadadi.jpg",
         links: {
             gmail: "hadadiabdelqodouss.2022@gmail.com",
             linkedin: "https://www.linkedin.com/in/abdelqodouss-hadadi-83a302332/",
@@ -186,7 +186,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Ikram AIT OMAR",
         role: "Photographer",
-        image: "/assets/team/ikram.jpg",
+        image: "/assets/team/ikram_ait-omar.jpg",
         links: {
             gmail: "ikramaitomar01@gmail.com",
             linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
@@ -196,7 +196,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Ayoub EL AANBRI",
         role: "Photographer",
-        image: "/assets/team/ayoub.jpg",
+        image: "/assets/team/ayoub_el-aanbri.jpg",
         links: {
             gmail: "ayoubelaanbri@gmail.com",
             linkedin: "https://www.linkedin.com/in/ayoub-el-aanbri-759a33345",
