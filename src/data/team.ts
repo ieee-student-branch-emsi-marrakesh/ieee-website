@@ -73,7 +73,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Hiba CHAOUI",
         role: "Communication and social Media Manager",
-        image: "/assets/team/hiba_chaoui.jpeg",
+        image: "/assets/team/hiba_chaoui.jpg",
         links: {
             gmail: "hiba.chaoui221@gmail.com",
             linkedin: "https://www.linkedin.com/in/hiba-chaoui-661a52302",
@@ -83,7 +83,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Marwa BOULLY",
         role: "Equipment and logistic Manager",
-        image: "/assets/team/marwa_boully.jpeg",
+        image: "/assets/team/marwa_boully.jpg",
         links: {
             gmail: "boullymarwa9@gmail.com",
             linkedin: "https://www.linkedin.com/in/marwa-boully-4b7717313",
@@ -104,7 +104,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Aya EDDANIAOUI",
         role: "Events and competitions Manager",
-        image: "/assets/team/aya_eddaniaoui.jpeg",
+        image: "/assets/team/aya_eddaniaoui.jpg",
         links: {
             gmail: "eddaniaouiaya@gmail.com",
             linkedin: "https://www.linkedin.com/in/aya-eddaniaoui-464713344",
@@ -115,7 +115,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Nour El Houda NASSEF",
         role: "Events and competitions Manager",
-        image: "/assets/team/nour-el-houda_nassef.jpeg",
+        image: "/assets/team/nour-el-houda_nassef.jpg",
         links: {
             gmail: "nourelhouda.nassef@gmail.com",
         },
@@ -123,7 +123,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Youness SBAI",
         role: "IT and website Manager",
-        image: "/assets/team/youness_sbai.jpeg",
+        image: "/assets/team/youness_sbai.jpg",
         links: {
             gmail: "youness.sbai.work@gmail.com",
             linkedin: "https://www.linkedin.com/in/y-sbai/",
@@ -165,7 +165,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Abderahmane ELADNANI",
         role: "Designer",
-        image: "/assets/team/abderahmane_el-adnani.png",
+        image: "/assets/team/abderahmane_el-adnani.jpg",
         links: {
             gmail: "m.a.eladnani1@gmail.com",
             linkedin: "https://www.linkedin.com/in/mly-abderrahmane-el-adnani-b4477b298/",
