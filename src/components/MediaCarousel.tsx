@@ -146,7 +146,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
 
     return (
         <div
-            className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-ieee-navy-light mb-4 sm:mb-6 group"
+            className="relative w-full aspect-[16/10] sm:aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-ieee-navy-light mb-4 sm:mb-6 group flex-shrink-0"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
         >

@@ -22,7 +22,7 @@ export default function EventModal({ event, open, onOpenChange }: EventModalProp
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-3xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto bg-ieee-navy border-ieee-gold/20 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6">
+            <DialogContent className="max-w-3xl w-[95vw] sm:w-full max-h-[90vh] overflow-y-auto bg-ieee-navy border-ieee-gold/20 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col gap-0">
                 <DialogHeader>
                     <DialogTitle className="text-2xl sm:text-3xl font-bold text-ieee-gold mb-3 sm:mb-4 pr-6">
                         {event.title}
