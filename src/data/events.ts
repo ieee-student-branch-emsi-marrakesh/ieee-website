@@ -30,30 +30,50 @@ export interface Event {
 
 export const events: Event[] = [
     /* Upcoming Events */
+
+
+    /* Past Events */
     {
         id: "vision-ai",
         title: "Vision AI Competition",
-        description: "AI Projects Competition.",
+        description: "A competition showcasing innovative AI projects and solutions.",
         date: "February 14, 2026",
         image: "/assets/events/2025-2026/vision_ai/thumb.jpg",
         category: "Competition",
         type: "competition",
         location: "EMSI Marrakesh",
-        isPast: false,
-        detailedDescription: "Join us for an exciting AI competition where teams will compete to build innovative computer vision solutions. Participants will tackle real-world challenges using state-of-the-art machine learning techniques and present their projects to a panel of industry experts.",
+        isPast: true,
+        detailedDescription: "Vision AI was a competition centered around Artificial Intelligence in all its forms. Participants developed and presented their own AI projects, ranging from problem-solving applications to innovative systems introducing entirely new ideas. Each team pitched their solution in front of a jury, explaining the concept, technical implementation, real-world impact, and future potential. The jury evaluated projects based on creativity, technical depth, feasibility, and presentation quality.",
         objectives: [
-            "Develop innovative AI-powered vision solutions",
-            "Apply machine learning techniques to real-world problems",
-            "Present technical solutions to industry experts",
-            "Network with AI professionals and fellow students"
+            "Encourage students to design and build original AI-based projects",
+            "Promote innovative solutions to real-world challenges",
+            "Strengthen participants' pitching and technical presentation skills",
+            "Foster critical thinking, creativity, and practical AI implementation"
+        ],
+        tools: [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Data Science",
+            "Computer Vision",
+            "Natural Language Processing"
         ],
         media: [
             { type: "image", url: "/assets/events/2025-2026/vision_ai/thumb.jpg" },
-        ],
-        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSevHzkE1GcGxOSTjUK9pt-V-3Hbi6tH4iXHZ2oefE9-M5Q0dQ/viewform?usp=sharing&ouid=105034487534648453116",
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo1.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo2.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo3.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo4.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo5.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo6.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo7.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo8.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo9.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo10.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo11.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo12.jpg" },
+            { type: "image", url: "/assets/events/2025-2026/vision_ai/photo13.jpg" },
+        ]
     },
-
-    /* Past Events */
     {
         id: "catia-bootcamp",
         title: "CATIA Design Bootcamp",
