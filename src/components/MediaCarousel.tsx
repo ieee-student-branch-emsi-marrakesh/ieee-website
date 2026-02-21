@@ -223,6 +223,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
                         <img
                             src={currentMedia.url}
                             alt={`Media ${currentIndex + 1}`}
+                            loading="lazy"
                             className="w-full h-full object-cover select-none"
                         />
                     ) : (
@@ -235,6 +236,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
                                 onTimeUpdate={handleTimeUpdate}
                                 onLoadedMetadata={() => setDuration(videoRef.current?.duration || 0)}
                                 playsInline
+                                preload="metadata"
                                 onClick={handleVideoClick}
                             />
 

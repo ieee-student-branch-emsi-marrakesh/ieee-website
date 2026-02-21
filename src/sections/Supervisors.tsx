@@ -47,6 +47,7 @@ export default function Supervisors() {
                                             <img
                                                 src={supervisor.image}
                                                 alt={supervisor.name}
+                                                loading="lazy"
                                                 className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                                                 onError={(e) => {
                                                     e.currentTarget.style.display = 'none';

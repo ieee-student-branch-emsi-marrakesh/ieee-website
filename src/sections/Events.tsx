@@ -59,6 +59,7 @@ export default function Events() {
                                         <img
                                             src={event.image}
                                             alt={event.title}
+                                            loading="lazy"
                                             className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                                             onError={(e) => {
                                                 // Hide image if it fails to load, showing category text instead
@@ -117,6 +118,7 @@ export default function Events() {
                                         <img
                                             src={event.image}
                                             alt={event.title}
+                                            loading="lazy"
                                             className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                                             onError={(e) => {
                                                 // Hide image if it fails to load, showing calendar icon instead

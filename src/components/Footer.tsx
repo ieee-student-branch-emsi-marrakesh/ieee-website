@@ -16,6 +16,7 @@ export default function Footer() {
                             <img
                                 src="/assets/logo.jpg"
                                 alt="IEEE EMSI Marrakesh Logo"
+                                loading="lazy"
                                 className="h-12 w-12 object-contain rounded-lg opacity-80"
                             />
                             <div className="flex flex-col">

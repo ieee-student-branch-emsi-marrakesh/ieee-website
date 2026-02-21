@@ -74,6 +74,7 @@ export default function About() {
                                         <img
                                             src={inst.logo}
                                             alt={inst.alt}
+                                            loading="lazy"
                                             className="h-14 sm:h-16 w-auto object-contain transition-all duration-500"
                                         />
                                     </div>
