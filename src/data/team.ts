@@ -62,6 +62,27 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
+        name: "Ikram AIT OMAR",
+        role: "coordinator",
+        image: "/assets/team/ikram_ait-omar.jpg",
+        links: {
+            gmail: "ikramaitomar01@gmail.com",
+            linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
+            instagram: "https://www.instagram.com/_ikramaor"
+        },
+    },
+    {
+        name: "Yahya MIHNANE",
+        role: "HR Manager",
+        image: "/assets/team/yahya_mihnane.jpg",
+        links: {
+            gmail: "yahyamihnane0@gmail.com",
+            linkedin: "https://www.linkedin.com/in/yahya-mihnane-098206250",
+            instagram: "https://www.instagram.com/yahyamihnane",
+            github: "https://github.com/Yahyamih"
+        },
+    },
+    {
         name: "Rouaa ALHAREEBI",
         role: "Communication and social Media Manager",
         image: "/assets/team/rouaa_alhareebi.jpg",
@@ -139,27 +160,6 @@ export const teamMembers: TeamMember[] = [
             linkedin: "http://linkedin.com/in/taib-moutasaoui-b03411239",
             instagram: "https://www.instagram.com/tibo_elm",
             github: "https://github.com/Tibo97"
-        },
-    },
-    {
-        name: "Yahya MIHNANE",
-        role: "HR Manager",
-        image: "/assets/team/yahya_mihnane.jpg",
-        links: {
-            gmail: "yahyamihnane0@gmail.com",
-            linkedin: "https://www.linkedin.com/in/yahya-mihnane-098206250",
-            instagram: "https://www.instagram.com/yahyamihnane",
-            github: "https://github.com/Yahyamih"
-        },
-    },
-    {
-        name: "Ikram AIT OMAR",
-        role: "coordinator",
-        image: "/assets/team/ikram_ait-omar.jpg",
-        links: {
-            gmail: "ikramaitomar01@gmail.com",
-            linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
-            instagram: "https://www.instagram.com/_ikramaor"
         },
     },
     {
