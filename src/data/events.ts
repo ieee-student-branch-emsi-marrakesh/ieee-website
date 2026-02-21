@@ -59,6 +59,7 @@ export const events: Event[] = [
         ],
         media: [
             { type: "image", url: "/assets/events/2025-2026/vision_ai/thumb.jpg" },
+            { type: "video", url: "/assets/events/2025-2026/vision_ai/thriller.mp4" },
             { type: "image", url: "/assets/events/2025-2026/vision_ai/photo1.jpg" },
             { type: "image", url: "/assets/events/2025-2026/vision_ai/photo2.jpg" },
             { type: "image", url: "/assets/events/2025-2026/vision_ai/photo3.jpg" },
@@ -110,6 +111,7 @@ export const events: Event[] = [
             { type: "image", url: "/assets/events/2025-2026/catia/photo3.jpg" },
             { type: "image", url: "/assets/events/2025-2026/catia/photo4.jpg" },
             { type: "image", url: "/assets/events/2025-2026/catia/photo5.jpg" },
+            { type: "video", url: "/assets/events/2025-2026/catia/video.mp4" },
         ]
     },
     {
@@ -146,6 +148,7 @@ export const events: Event[] = [
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo8.jpg" },
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo9.jpg" },
             { type: "image", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/photo10.jpg" },
+            { type: "video", url: "/assets/events/2025-2026/cybersecurity_and_ctfs_bootcamp/video.mp4" },
         ]
     },
     {
@@ -170,6 +173,7 @@ export const events: Event[] = [
             { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo2.jpg" },
             { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo3.jpg" },
             { type: "image", url: "/assets/events/2025-2026/entrepreneuriat/photo5.jpg" },
+            { type: "video", url: "/assets/events/2025-2026/entrepreneuriat/video.mp4" },
         ]
     },
     {

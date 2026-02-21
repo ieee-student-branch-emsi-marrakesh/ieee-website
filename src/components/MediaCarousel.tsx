@@ -20,19 +20,61 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
     const [isHovering, setIsHovering] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
+    const [isHoveringControls, setIsHoveringControls] = useState(false);
+    const [showControls, setShowControls] = useState(false);
+    const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const resetControlsTimeout = () => {
+        if (controlsTimeoutRef.current) {
+            clearTimeout(controlsTimeoutRef.current);
+        }
+        setShowControls(true);
+        if (isPlaying) {
+            controlsTimeoutRef.current = setTimeout(() => {
+                setShowControls(false);
+            }, 3000);
+        }
+    };
+
+    const handleVideoClick = (e: React.MouseEvent) => {
+        // Prevent clicking controls from triggering play/pause
+        if (isHoveringControls) return;
+
+        if (showControls || !isPlaying) {
+            togglePlay();
+        } else {
+            resetControlsTimeout();
+        }
+    };
+
     useEffect(() => {
         const handleFullscreenChange = () => {
             setIsFullscreen(!!document.fullscreenElement);
         };
         document.addEventListener('fullscreenchange', handleFullscreenChange);
-        return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+        };
     }, []);
+
+    useEffect(() => {
+        // When paused, show controls
+        if (!isPlaying) {
+            setShowControls(true);
+            if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+        } else {
+            resetControlsTimeout();
+        }
+    }, [isPlaying]);
 
     useEffect(() => {
         // Reset state when media changes
         setIsPlaying(false);
         setProgress(0);
         setDuration(0);
+        setIsHoveringControls(false);
+        setShowControls(true);
     }, [currentIndex]);
 
     if (!media || media.length === 0) return null;
@@ -148,7 +190,10 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
         <div
             className="relative w-full aspect-[16/10] sm:aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-ieee-navy-light mb-4 sm:mb-6 group flex-shrink-0"
             onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseLeave={() => {
+                setIsHovering(false);
+                setIsHoveringControls(false);
+            }}
         >
             <AnimatePresence initial={false} custom={direction}>
                 <motion.div
@@ -162,7 +207,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
                         x: { type: "spring", stiffness: 300, damping: 30 },
                         opacity: { duration: 0.2 }
                     }}
-                    drag="x"
+                    drag={isHoveringControls ? false : "x"}
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={1}
                     onDragEnd={(_, { offset, velocity }) => {
@@ -192,12 +237,12 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
                                 onTimeUpdate={handleTimeUpdate}
                                 onLoadedMetadata={() => setDuration(videoRef.current?.duration || 0)}
                                 playsInline
-                                onClick={togglePlay}
+                                onClick={handleVideoClick}
                             />
 
                             {/* Central Play/Pause Toggle */}
                             <AnimatePresence>
-                                {showOverlay && (
+                                {(showOverlay || showControls) && (
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -212,18 +257,47 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
                             </AnimatePresence>
 
                             {/* Custom Controls Bar */}
-                            <div className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'}`}>
-                                {/* Progress Slider */}
-                                <div className="flex items-center gap-3 mb-2 group/progress">
-                                    <input
-                                        type="range"
-                                        min="0"
-                                        max="100"
-                                        value={progress}
-                                        onChange={handleSeek}
-                                        className="flex-grow h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-ieee-gold hover:h-2 transition-all"
-                                    />
-                                    <span className="text-[10px] text-white font-mono w-20 text-right">
+                            <div
+                                className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${(isHovering || showControls) ? 'opacity-100' : 'opacity-0'}`}
+                                onMouseEnter={() => {
+                                    setIsHoveringControls(true);
+                                    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+                                }}
+                                onMouseLeave={() => setIsHoveringControls(false)}
+                                onTouchStart={resetControlsTimeout}
+                            >
+                                {/* Progress Slider Container (YouTube Style) */}
+                                <div className="relative group/progress mb-2 flex items-center gap-3">
+                                    <div className="relative flex-grow h-1.5 flex items-center">
+                                        {/* Track Background */}
+                                        <div className="absolute inset-0 bg-white/20 rounded-full overflow-hidden">
+                                            {/* Progress Fill (Yellow) */}
+                                            <div
+                                                className="h-full bg-ieee-gold transition-all duration-75"
+                                                style={{ width: `${progress}%` }}
+                                            />
+                                        </div>
+
+                                        {/* Scrubber (Thumb) */}
+                                        <div
+                                            className={`absolute w-3 h-3 bg-ieee-gold rounded-full shadow-lg transition-transform duration-200 pointer-events-none ${isHovering || showControls ? 'scale-100' : 'scale-0'
+                                                } group-hover/progress:scale-125`}
+                                            style={{ left: `${progress}%`, marginLeft: '-6px' }}
+                                        />
+
+                                        {/* Invisible Input for Interaction */}
+                                        <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            step="0.1"
+                                            value={progress}
+                                            onChange={handleSeek}
+                                            className="absolute inset-0 w-full h-1.5 opacity-0 cursor-pointer accent-ieee-gold"
+                                        />
+                                    </div>
+
+                                    <span className="text-[10px] text-white font-mono w-20 text-right shrink-0">
                                         {formatTime(videoRef.current?.currentTime || 0)} / {formatTime(duration)}
                                     </span>
                                 </div>
@@ -280,7 +354,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
             )}
 
             {/* Pagination Indicators */}
-            {media.length > 1 && (
+            {media.length > 1 && currentMedia.type !== "video" && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                     {media.map((_, index) => (
                         <button
