@@ -17,26 +17,31 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
     const [isMuted, setIsMuted] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
     const playerRef = useRef<HTMLDivElement>(null);
-    const [isHovering, setIsHovering] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     const [isHoveringControls, setIsHoveringControls] = useState(false);
     const [showControls, setShowControls] = useState(false);
-    const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const controlsTimeoutRef = useRef<any>(null);
 
     const resetControlsTimeout = () => {
+        if (!isPlaying) {
+            setShowControls(true);
+            if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+            return;
+        }
+
+        setShowControls(true);
         if (controlsTimeoutRef.current) {
             clearTimeout(controlsTimeoutRef.current);
         }
-        setShowControls(true);
-        if (isPlaying) {
-            controlsTimeoutRef.current = setTimeout(() => {
+        controlsTimeoutRef.current = setTimeout(() => {
+            if (!isHoveringControls) {
                 setShowControls(false);
-            }, 3000);
-        }
+            }
+        }, 3000);
     };
 
-    const handleVideoClick = (e: React.MouseEvent) => {
+    const handleVideoClick = () => {
         // Prevent clicking controls from triggering play/pause
         if (isHoveringControls) return;
 
@@ -59,13 +64,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
     }, []);
 
     useEffect(() => {
-        // When paused, show controls
-        if (!isPlaying) {
-            setShowControls(true);
-            if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
-        } else {
-            resetControlsTimeout();
-        }
+        resetControlsTimeout();
     }, [isPlaying]);
 
     useEffect(() => {
@@ -182,17 +181,16 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
 
     const currentMedia = media[currentIndex];
 
-    // Visibility logic for play/pause overlay:
-    // Show if NOT playing OR if hovering while playing
-    const showOverlay = !isPlaying || isHovering;
-
     return (
         <div
             className="relative w-full aspect-[16/10] sm:aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-ieee-navy-light mb-4 sm:mb-6 group flex-shrink-0"
-            onMouseEnter={() => setIsHovering(true)}
+            onMouseEnter={() => {
+                resetControlsTimeout();
+            }}
+            onMouseMove={resetControlsTimeout}
             onMouseLeave={() => {
-                setIsHovering(false);
                 setIsHoveringControls(false);
+                if (isPlaying) setShowControls(false);
             }}
         >
             <AnimatePresence initial={false} custom={direction}>
@@ -242,7 +240,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
 
                             {/* Central Play/Pause Toggle */}
                             <AnimatePresence>
-                                {(showOverlay || showControls) && (
+                                {showControls && (
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -258,12 +256,15 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
 
                             {/* Custom Controls Bar */}
                             <div
-                                className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${(isHovering || showControls) ? 'opacity-100' : 'opacity-0'}`}
+                                className={`absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
                                 onMouseEnter={() => {
                                     setIsHoveringControls(true);
                                     if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
                                 }}
-                                onMouseLeave={() => setIsHoveringControls(false)}
+                                onMouseLeave={() => {
+                                    setIsHoveringControls(false);
+                                    resetControlsTimeout();
+                                }}
                                 onTouchStart={resetControlsTimeout}
                             >
                                 {/* Progress Slider Container (YouTube Style) */}
@@ -280,7 +281,7 @@ export default function MediaCarousel({ media }: MediaCarouselProps) {
 
                                         {/* Scrubber (Thumb) */}
                                         <div
-                                            className={`absolute w-3 h-3 bg-ieee-gold rounded-full shadow-lg transition-transform duration-200 pointer-events-none ${isHovering || showControls ? 'scale-100' : 'scale-0'
+                                            className={`absolute w-3 h-3 bg-ieee-gold rounded-full shadow-lg transition-transform duration-200 pointer-events-none ${showControls ? 'scale-100' : 'scale-0'
                                                 } group-hover/progress:scale-125`}
                                             style={{ left: `${progress}%`, marginLeft: '-6px' }}
                                         />
