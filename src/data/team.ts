@@ -93,7 +93,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: "Fatima-Ezzahra MOUHSINE",
-        role: "Equipment and logistic Manager",
+        role: "Equipment and logistic Assistant",
         image: "/assets/team/fatima-ezzahra_mouhsine.jpg",
         links: {
             gmail: "fezzhra0@gmail.com",
@@ -114,7 +114,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: "Nour El Houda NASSEF",
-        role: "Events and competitions Manager",
+        role: "Events and competitions Assistant",
         image: "/assets/team/nour-el-houda_nassef.jpg",
         links: {
             gmail: "nourelhouda.nassef@gmail.com",
@@ -132,7 +132,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         name: "Taib MOUTASAOUI",
-        role: "IT and website Manager",
+        role: "IT and website Assistant",
         image: "/assets/team/taib_moutasaoui.jpg",
         links: {
             gmail: "taibmoutasaoui@gmail.com",
@@ -150,6 +150,16 @@ export const teamMembers: TeamMember[] = [
             linkedin: "https://www.linkedin.com/in/yahya-mihnane-098206250",
             instagram: "https://www.instagram.com/yahyamihnane",
             github: "https://github.com/Yahyamih"
+        },
+    },
+    {
+        name: "Ikram AIT OMAR",
+        role: "coordinator",
+        image: "/assets/team/ikram_ait-omar.jpg",
+        links: {
+            gmail: "ikramaitomar01@gmail.com",
+            linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
+            instagram: "https://www.instagram.com/_ikramaor"
         },
     },
     {
@@ -174,6 +184,16 @@ export const teamMembers: TeamMember[] = [
         },
     },
     {
+        name: "Ayoub EL AANBRI",
+        role: "Photographer",
+        image: "/assets/team/ayoub_el-aanbri.jpg",
+        links: {
+            gmail: "ayoubelaanbri@gmail.com",
+            linkedin: "https://www.linkedin.com/in/ayoub-el-aanbri-759a33345",
+            instagram: "https://www.instagram.com/Ayoub_sud_12"
+        }
+    },
+    {
         name: "Abdelqodouss HADADI",
         role: "Video Editor",
         image: "/assets/team/abdlqodos_hadadi.jpg",
@@ -183,24 +203,4 @@ export const teamMembers: TeamMember[] = [
             instagram: "https://www.instagram.com/abdelqodouss_hadadi/"
         },
     },
-    {
-        name: "Ikram AIT OMAR",
-        role: "Photographer",
-        image: "/assets/team/ikram_ait-omar.jpg",
-        links: {
-            gmail: "ikramaitomar01@gmail.com",
-            linkedin: "https://www.linkedin.com/in/ikram-ait-omar-bb393b285",
-            instagram: "https://www.instagram.com/_ikramaor"
-        },
-    },
-    {
-        name: "Ayoub EL AANBRI",
-        role: "Photographer",
-        image: "/assets/team/ayoub_el-aanbri.jpg",
-        links: {
-            gmail: "ayoubelaanbri@gmail.com",
-            linkedin: "https://www.linkedin.com/in/ayoub-el-aanbri-759a33345",
-            instagram: "https://www.instagram.com/Ayoub_sud_12"
-        }
-    }
 ];
