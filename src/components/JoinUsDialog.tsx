@@ -5,7 +5,7 @@ import { X, Mail, User, Phone, Sparkles, Loader2, CheckCircle2 } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import RobotCaptcha from "./RobotCaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface JoinUsDialogProps {
     isOpen: boolean;
@@ -20,7 +20,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
         interests: "",
     });
 
-    const [isVerified, setIsVerified] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
@@ -38,7 +38,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
 
     const resetForm = () => {
         setFormData({ name: "", email: "", phone: "", interests: "" });
-        setIsVerified(false);
+        setRecaptchaToken(null);
         setSubmitStatus("idle");
         setErrorMessage("");
     };
@@ -51,7 +51,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!isVerified) {
+        if (!recaptchaToken) {
             alert("Please verify that you are not a robot.");
             return;
         }
@@ -79,6 +79,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
                     email,
                     phone,
                     whyJoin: interests || "Not provided",
+                    recaptchaToken,
                 }),
             });
 
@@ -250,9 +251,10 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
                                                         animate={{ opacity: 1, y: 0 }}
                                                         className="px-1"
                                                     >
-                                                        <RobotCaptcha
-                                                            onVerify={(v) => setIsVerified(v)}
-                                                            reset={!isOpen}
+                                                        <ReCAPTCHA
+                                                            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""}
+                                                            onChange={(token) => setRecaptchaToken(token)}
+                                                            theme="dark"
                                                         />
                                                     </motion.div>
                                                 )}
@@ -281,7 +283,7 @@ export default function JoinUsDialog({ isOpen, onClose }: JoinUsDialogProps) {
                                                     </Button>
                                                     <Button
                                                         type="submit"
-                                                        disabled={!isVerified || isSubmitting}
+                                                        disabled={!recaptchaToken || isSubmitting}
                                                         className="flex-1 h-14 rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold font-black uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed group"
                                                     >
                                                         {isSubmitting ? (

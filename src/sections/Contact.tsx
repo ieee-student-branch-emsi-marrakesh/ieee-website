@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Github, Linkedin, Instagram } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CONTACT_EMAIL, SOCIAL_LINKS, getMailtoLink } from "@/data/socials";
-import RobotCaptcha from "@/components/RobotCaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -19,7 +19,8 @@ export default function Contact() {
     const [errorMessage, setErrorMessage] = useState("");
 
     // Bot protection state
-    const [isVerified, setIsVerified] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -32,7 +33,7 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!isVerified) {
+        if (!recaptchaToken) {
             setErrorMessage("Please verify that you are not a robot.");
             setSubmitStatus('error');
             return;
@@ -68,6 +69,7 @@ export default function Contact() {
                     name: formData.name,
                     email: formData.email,
                     message: formData.message,
+                    recaptchaToken,
                 }),
             });
 
@@ -81,7 +83,8 @@ export default function Contact() {
             setFormData({ name: '', email: '', message: '' });
             setSubmitStatus('success');
             // Reset verification
-            setIsVerified(false);
+            setRecaptchaToken(null);
+            recaptchaRef.current?.reset();
         } catch (error) {
             console.error('Contact form error:', error);
             setErrorMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again later.');
@@ -220,9 +223,11 @@ export default function Contact() {
                                             animate={{ opacity: 1, y: 0 }}
                                             className="px-1"
                                         >
-                                            <RobotCaptcha
-                                                onVerify={(v) => setIsVerified(v)}
-                                                reset={submitStatus === 'success'}
+                                            <ReCAPTCHA
+                                                ref={recaptchaRef}
+                                                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""}
+                                                onChange={(token) => setRecaptchaToken(token)}
+                                                theme="dark"
                                             />
                                         </motion.div>
                                     )}
@@ -241,7 +246,7 @@ export default function Contact() {
 
                                     <Button
                                         type="submit"
-                                        disabled={isSubmitting || !isVerified}
+                                        disabled={isSubmitting || !recaptchaToken}
                                         className="w-full h-16 text-lg font-black rounded-2xl bg-ieee-gold text-ieee-navy hover:bg-white transition-all shadow-gold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed group"
                                     >
                                         {isSubmitting ? 'Sending...' : 'Send Message'}

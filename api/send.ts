@@ -15,10 +15,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { fullName, email, phone, whyJoin } = req.body;
+    const { fullName, email, phone, whyJoin, recaptchaToken } = req.body;
 
-    if (!fullName || !email || !phone) {
+    if (!fullName || !email || !phone || !recaptchaToken) {
       return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    // Verify reCAPTCHA token
+    if (!process.env.RECAPTCHA_SECRET_KEY) {
+      console.error('RECAPTCHA_SECRET_KEY is not configured');
+      return res.status(500).json({ error: 'reCAPTCHA is not configured.' });
+    }
+
+    const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    });
+
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      return res.status(400).json({ error: 'reCAPTCHA verification failed. Please try again.' });
     }
 
     const data = await resend.emails.send({
