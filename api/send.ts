@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { buildApplicationEmail } from './joinus-template';
+import { buildApplicationEmail } from './joinus-template.js';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
