@@ -18,9 +18,17 @@ cd ieee-website
 # Install dependencies
 npm install
 
+# Set up environment variables
+cp .env.example .env
+# Open .env and fill in required keys (Resend, Google ReCAPTCHA)
+
 # Run the development server
 vercel dev
 ```
+
+> [!IMPORTANT]
+> **Environment Variables setup**
+> Before running the app locally, make sure to duplicate the `.env.example` file and rename it to `.env`. Fill in the required secrets (e.g., Resend, Google ReCAPTCHA) to test serverless functions and contact form submissions properly.
 
 > [!NOTE]
 > **Use `vercel dev` as your primary development command.**

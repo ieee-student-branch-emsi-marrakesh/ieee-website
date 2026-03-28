@@ -28,7 +28,13 @@ Welcome to the official website of the IEEE Student Branch at EMSI Marrakesh. Th
     ```bash
     npm install
     ```
-3.  **Run the development server**:
+3.  **Set up environment variables**:
+    ```bash
+    cp .env.example .env
+    ```
+    *Open the `.env` file and populate it with your specific API keys.*
+
+4.  **Run the development server**:
     ```bash
     vercel dev
     ```
