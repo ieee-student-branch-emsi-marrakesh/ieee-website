@@ -19,12 +19,12 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "About", href: "#about" },
-        { name: "Team", href: "#team" },
-        { name: "Events", href: "#events" },
-        { name: "Cells", href: "#cells" },
-        { name: "Awards", href: "#awards" },
-        { name: "Contact", href: "#contact" },
+        { name: "About", href: "/#about" },
+        { name: "Team", href: "/#team" },
+        { name: "Events", href: "/#events" },
+        { name: "Cells", href: "/#cells" },
+        { name: "Awards", href: "/#awards" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     return (
@@ -34,10 +34,12 @@ export default function Navbar() {
         >
             <div className="container px-4 mx-auto flex items-center justify-between">
                 <a
-                    href="#"
+                    href="/"
                     onClick={(e) => {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        if (window.location.pathname === '/' || window.location.pathname === '') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
                     }}
                     className="flex items-center gap-3 group"
                 >

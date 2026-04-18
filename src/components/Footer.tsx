@@ -54,20 +54,20 @@ export default function Footer() {
                     <div>
                         <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Quick Navigation</h4>
                         <ul className="space-y-4 text-gray-400 font-medium">
-                            <li><a href="#" className="hover:text-ieee-gold transition-colors block w-fit">Home</a></li>
-                            <li><a href="#about" className="hover:text-ieee-gold transition-colors block w-fit">Who We Are</a></li>
-                            <li><a href="#team" className="hover:text-ieee-gold transition-colors block w-fit">Our Leadership</a></li>
-                            <li><a href="#events" className="hover:text-ieee-gold transition-colors block w-fit">Upcoming Events</a></li>
+                            <li><a href="/" className="hover:text-ieee-gold transition-colors block w-fit">Home</a></li>
+                            <li><a href="/#about" className="hover:text-ieee-gold transition-colors block w-fit">Who We Are</a></li>
+                            <li><a href="/#team" className="hover:text-ieee-gold transition-colors block w-fit">Our Leadership</a></li>
+                            <li><a href="/#events" className="hover:text-ieee-gold transition-colors block w-fit">Upcoming Events</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-black text-white mb-8 uppercase tracking-[0.2em] text-[10px]">Technical Focus</h4>
                         <ul className="space-y-4 text-gray-400 font-medium">
-                            <li><a href="#cells" className="hover:text-ieee-gold transition-colors block w-fit">Technical Cells</a></li>
-                            <li><a href="#events" className="hover:text-ieee-gold transition-colors block w-fit">Workshops</a></li>
-                            <li><a href="#events" className="hover:text-ieee-gold transition-colors block w-fit">Competitions</a></li>
-                            <li><a href="#contact" className="hover:text-ieee-gold transition-colors block w-fit">Join the Branch</a></li>
+                            <li><a href="/#cells" className="hover:text-ieee-gold transition-colors block w-fit">Technical Cells</a></li>
+                            <li><a href="/#events" className="hover:text-ieee-gold transition-colors block w-fit">Workshops</a></li>
+                            <li><a href="/#events" className="hover:text-ieee-gold transition-colors block w-fit">Competitions</a></li>
+                            <li><a href="/#contact" className="hover:text-ieee-gold transition-colors block w-fit">Join the Branch</a></li>
                         </ul>
                     </div>
 
@@ -94,7 +94,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a
-                                    href="#contact"
+                                    href="/#contact"
                                     className="hover:text-ieee-gold transition-colors block w-fit"
                                 >
                                     Get in Touch

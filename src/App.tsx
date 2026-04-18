@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -26,6 +26,28 @@ function Loading() {
 }
 
 function HomePage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      let attempts = 0;
+      const checkForElement = () => {
+        const element = document.querySelector(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        } else if (attempts < 50) {
+          attempts++;
+          setTimeout(checkForElement, 100);
+        }
+      };
+      checkForElement();
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [hash]);
+
   return (
     <div className="min-h-screen bg-white selection:bg-primary/10 selection:text-primary">
       <Navbar />
