@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function TeamPage() {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "instant" });
     }, []);
 
     return (

@@ -145,7 +145,6 @@ export default function Events() {
                         >
                             <Link
                                 to="/events"
-                                onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                                 className="group relative inline-flex px-8 py-3 font-bold text-white transition-all duration-300 bg-transparent border-2 border-ieee-blue rounded-full hover:bg-ieee-blue hover:text-white overflow-hidden"
                             >
                                 <span className="relative z-10 flex items-center gap-2">

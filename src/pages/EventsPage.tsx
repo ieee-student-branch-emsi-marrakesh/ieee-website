@@ -16,7 +16,7 @@ export default function EventsPage() {
     const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "instant" });
     }, []);
 
     const handleEventClick = (event: Event) => {
