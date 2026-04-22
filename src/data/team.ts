@@ -98,7 +98,6 @@ export const teamMembers: TeamMember[] = [
         links: {
             gmail: "hiba.chaoui221@gmail.com",
             linkedin: "https://www.linkedin.com/in/hiba-chaoui-661a52302",
-            instagram: "https://www.instagram.com/they__call_me_hibaa"
         },
     },
     {
