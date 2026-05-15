@@ -56,6 +56,120 @@ export const events: Event[] = [
 
     /* Past Events */
     {
+        id: "git-github",
+        title: "Git & GitHub Workshop",
+        description: "A comprehensive hands-on workshop on version control fundamentals and collaboration using Git and GitHub.",
+        date: "April 16, 2026",
+        image: "/assets/events/2025-2026/git_and_github/thumb.webp",
+        category: "Workshop",
+        type: "workshop",
+        location: "EMSI Marrakesh",
+        isPast: true,
+        detailedDescription: "The Git & GitHub Workshop was an essential hands-on session for students to master version control and collaborative development. Participants learned the core concepts of Git, including repositories, commits, branching, and merging. The workshop also covered GitHub features such as pull requests, issues, and collaboration workflows. Attendees gained practical experience in managing code history and working effectively in team environments.",
+        speakers: [
+            {
+                name: "Youness SBAI",
+                role: "Student at EMSI Marrakesh"
+            }
+        ],
+        objectives: [
+            "Understand the importance of version control in modern software development",
+            "Master basic Git commands: init, add, commit, push, pull, and clone",
+            "Learn effective branching and merging strategies for collaborative work",
+            "Navigate the GitHub interface and use its collaboration tools (PRs, Issues)",
+            "Resolve merge conflicts and manage code history with confidence"
+        ],
+        tools: [
+            "Git",
+            "GitHub",
+            "Version Control",
+            "Collaboration",
+            "Command Line"
+        ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/git_and_github/thumb.webp" },
+            { type: "image", url: "/assets/events/2025-2026/git_and_github/1.webp" },
+            { type: "image", url: "/assets/events/2025-2026/git_and_github/2.webp" },
+            { type: "image", url: "/assets/events/2025-2026/git_and_github/3.webp" },
+        ]
+    },
+    {
+        id: "tia-portal",
+        title: "Tia Portal Workshop",
+        description: "A hands-on workshop focused on industrial automation and PLC programming using Siemens TIA Portal.",
+        date: "April 9, 2026",
+        image: "/assets/events/2025-2026/tia_portal/thumb.webp",
+        category: "Workshop",
+        type: "workshop",
+        location: "EMSI Marrakesh",
+        isPast: true,
+        detailedDescription: "The TIA Portal Workshop was a practical, hands-on session designed to introduce students to the world of industrial automation. Participants learned the fundamentals of PLC (Programmable Logic Controller) programming and HMI (Human Machine Interface) design using Siemens Totally Integrated Automation (TIA) Portal. The workshop covered hardware configuration, ladder logic programming, simulation techniques, and interface creation. Attendees gained real-world skills in automating industrial processes and troubleshooting automated systems.",
+        speakers: [
+            {
+                name: "Imane HAJAOUI",
+                role: "Student at EMSI Marrakesh"
+            },
+            {
+                name: "Tahra AIT JDI",
+                role: "Student at EMSI Marrakesh"
+            }
+        ],
+        objectives: [
+            "Understand the basics of industrial automation and PLC architecture",
+            "Learn to configure hardware and network components in TIA Portal",
+            "Master Ladder Logic (LAD) programming for industrial control",
+            "Create and simulate HMI screens for process monitoring and control",
+            "Gain hands-on experience with industrial automation troubleshooting"
+        ],
+        tools: [
+            "Siemens TIA Portal",
+            "PLC Programming (S7-1200/1500)",
+            "HMI Design",
+            "Ladder Logic (LAD)",
+            "Industrial Automation"
+        ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/tia_portal/thumb.webp" },
+            { type: "image", url: "/assets/events/2025-2026/tia_portal/1.webp" },
+        ]
+    },
+    {
+        id: "power-bi",
+        title: "Power BI Workshop",
+        description: "A hands-on workshop focused on data visualization and business intelligence using Microsoft Power BI.",
+        date: "April 2, 2026",
+        image: "/assets/events/2025-2026/power_bi/thumb.webp",
+        category: "Workshop",
+        type: "workshop",
+        location: "EMSI Marrakesh",
+        isPast: true,
+        detailedDescription: "The Power BI Workshop was a hands-on session designed to introduce students to the world of data visualization and business intelligence. Participants learned how to transform raw data into meaningful insights using Microsoft Power BI. The workshop covered data connection, cleaning with Power Query, modeling, and creating interactive dashboards. Attendees gained practical skills in using DAX formulas and designing professional reports to drive data-driven decision-making.",
+        speakers: [
+            {
+                name: "Marwa BOULLY",
+                role: "Student at EMSI Marrakesh"
+            }
+        ],
+        objectives: [
+            "Understand the fundamentals of Business Intelligence and data storytelling",
+            "Learn to connect and transform data from various sources using Power Query",
+            "Master the creation of interactive dashboards and professional reports",
+            "Gain hands-on experience with DAX (Data Analysis Expressions) for complex calculations"
+        ],
+        tools: [
+            "Microsoft Power BI",
+            "Power Query",
+            "DAX",
+            "Data Visualization",
+            "Business Intelligence"
+        ],
+        media: [
+            { type: "image", url: "/assets/events/2025-2026/power_bi/thumb.webp" },
+            { type: "image", url: "/assets/events/2025-2026/power_bi/1.webp" },
+            { type: "image", url: "/assets/events/2025-2026/power_bi/2.webp" },
+        ]
+    },
+    {
         id: "vision-ai",
         title: "Vision AI Competition",
         description: "A competition showcasing innovative AI projects and solutions.",
