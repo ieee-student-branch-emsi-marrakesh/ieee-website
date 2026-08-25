@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -68,15 +69,18 @@ function HomePage() {
 
 function App() {
   return (
-    <Suspense fallback={<Loading />}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/team" element={<TeamPage />} />
-        <Route path="/achievements" element={<AchievementsPage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/achievements" element={<AchievementsPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+      <Analytics />
+    </>
   );
 }
 
